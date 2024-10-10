@@ -77,6 +77,7 @@
             btn_login.TabIndex = 4;
             btn_login.Text = "Iniciar Sesión";
             btn_login.UseVisualStyleBackColor = true;
+            btn_login.Click += btn_login_Click;
             // 
             // btn_createacc
             // 
