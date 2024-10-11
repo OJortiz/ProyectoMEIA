@@ -1,3 +1,6 @@
+using System.Text;
+using System.Security.Cryptography;
+
 namespace ProyectoMEIA
 {
     public partial class Form_Main : Form
@@ -29,6 +32,9 @@ namespace ProyectoMEIA
                 return;
             }
 
+            // Cifrar la contraseña ingresada utilizando SHA-256
+            string passwordCifrada = CifrarSHA256(passwordIngresado);
+
             string[] lineas = File.ReadAllLines(rutaArchivoUsuarios);
             bool usuarioEncontrado = false;
             foreach (string linea in lineas)
@@ -39,14 +45,14 @@ namespace ProyectoMEIA
                 if (campos.Length == 8) // Asegurarse de que haya el número correcto de campos
                 {
                     string usuario = campos[0];
-                    string password = campos[3];
+                    string passwordAlmacenada = campos[3];
                     int estatus = int.Parse(campos[7]);
 
                     // Verificar si el usuario existe y está activo
                     if (usuario == usuarioIngresado && estatus == 1)
                     {
-                        // Verificar la contraseña 
-                        if (password == passwordIngresado)
+                        // Verificar la contraseña cifrada
+                        if (passwordAlmacenada == passwordCifrada)
                         {
                             usuarioEncontrado = true;
                             MessageBox.Show("Inicio de sesión exitoso.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -65,6 +71,21 @@ namespace ProyectoMEIA
             if (!usuarioEncontrado)
             {
                 MessageBox.Show("Usuario no encontrado o inactivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string CifrarSHA256(string input)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
             }
         }
 
