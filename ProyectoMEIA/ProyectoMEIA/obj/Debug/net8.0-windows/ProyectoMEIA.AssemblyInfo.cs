@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProyectoMEIA")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< Updated upstream
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e25f2f4199c10dc072adb8bafde9d8b52731543a")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+21a4ccfc22ac0ececb24c5797429f42404b6753c")]
->>>>>>> Stashed changes
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+995ec1511d94a3c9f718e4df7aceadac582ad78d")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProyectoMEIA")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProyectoMEIA")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
