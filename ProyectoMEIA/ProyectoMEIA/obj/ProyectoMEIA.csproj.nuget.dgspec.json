@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ojort\\OneDrive\\Documentos\\GitHub\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA.csproj": {}
+    "C:\\Users\\maron\\source\\repos\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ojort\\OneDrive\\Documentos\\GitHub\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA.csproj": {
+    "C:\\Users\\maron\\source\\repos\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ojort\\OneDrive\\Documentos\\GitHub\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA.csproj",
+        "projectUniqueName": "C:\\Users\\maron\\source\\repos\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA.csproj",
         "projectName": "ProyectoMEIA",
-        "projectPath": "C:\\Users\\ojort\\OneDrive\\Documentos\\GitHub\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA.csproj",
-        "packagesPath": "C:\\Users\\ojort\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ojort\\OneDrive\\Documentos\\GitHub\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA\\obj\\",
+        "projectPath": "C:\\Users\\maron\\source\\repos\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA.csproj",
+        "packagesPath": "C:\\Users\\maron\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\maron\\source\\repos\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ojort\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\maron\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,11 +38,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -63,7 +62,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
