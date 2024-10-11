@@ -87,6 +87,7 @@
             btn_createacc.TabIndex = 5;
             btn_createacc.Text = "Crear Cuenta";
             btn_createacc.UseVisualStyleBackColor = true;
+            btn_createacc.Click += btn_createacc_Click;
             // 
             // Form_Main
             // 
