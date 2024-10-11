@@ -67,5 +67,11 @@ namespace ProyectoMEIA
                 MessageBox.Show("Usuario no encontrado o inactivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btn_createacc_Click(object sender, EventArgs e)
+        {
+            NuevoUsuario nuevo = new NuevoUsuario();
+            nuevo.Show();
+        }
     }
 }
