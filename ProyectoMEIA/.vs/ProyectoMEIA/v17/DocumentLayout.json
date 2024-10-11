@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\ojort\\OneDrive\\Documentos\\GitHub\\ProyectoMEIA\\ProyectoMEIA\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6F256CB7-9FDB-472B-BABE-E1055B5E6895}|ProyectoMEIA\\ProyectoMEIA.csproj|C:\\Users\\ojort\\OneDrive\\Documentos\\GitHub\\ProyectoMEIA\\ProyectoMEIA\\proyectomeia\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6F256CB7-9FDB-472B-BABE-E1055B5E6895}|ProyectoMEIA\\ProyectoMEIA.csproj|solutionrelative:proyectomeia\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{6F256CB7-9FDB-472B-BABE-E1055B5E6895}|ProyectoMEIA\\ProyectoMEIA.csproj|c:\\users\\ojort\\onedrive\\documentos\\github\\proyectomeia\\proyectomeia\\proyectomeia\\nuevousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6F256CB7-9FDB-472B-BABE-E1055B5E6895}|ProyectoMEIA\\ProyectoMEIA.csproj|solutionrelative:proyectomeia\\nuevousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6F256CB7-9FDB-472B-BABE-E1055B5E6895}|ProyectoMEIA\\ProyectoMEIA.csproj|c:\\users\\ojort\\onedrive\\documentos\\github\\proyectomeia\\proyectomeia\\proyectomeia\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F256CB7-9FDB-472B-BABE-E1055B5E6895}|ProyectoMEIA\\ProyectoMEIA.csproj|solutionrelative:proyectomeia\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F256CB7-9FDB-472B-BABE-E1055B5E6895}|ProyectoMEIA\\ProyectoMEIA.csproj|c:\\users\\ojort\\onedrive\\documentos\\github\\proyectomeia\\proyectomeia\\proyectomeia\\nuevousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F256CB7-9FDB-472B-BABE-E1055B5E6895}|ProyectoMEIA\\ProyectoMEIA.csproj|solutionrelative:proyectomeia\\nuevousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F256CB7-9FDB-472B-BABE-E1055B5E6895}|ProyectoMEIA\\ProyectoMEIA.csproj|c:\\users\\ojort\\onedrive\\documentos\\github\\proyectomeia\\proyectomeia\\proyectomeia\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6F256CB7-9FDB-472B-BABE-E1055B5E6895}|ProyectoMEIA\\ProyectoMEIA.csproj|solutionrelative:proyectomeia\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,20 +34,45 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NuevoUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\ojort\\OneDrive\\Documentos\\GitHub\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA\\NuevoUsuario.cs",
+              "RelativeDocumentMoniker": "ProyectoMEIA\\NuevoUsuario.cs",
+              "ToolTip": "C:\\Users\\ojort\\OneDrive\\Documentos\\GitHub\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA\\NuevoUsuario.cs",
+              "RelativeToolTip": "ProyectoMEIA\\NuevoUsuario.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHUAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T22:26:59.369Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NuevoUsuario.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\ojort\\OneDrive\\Documentos\\GitHub\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA\\NuevoUsuario.cs",
+              "RelativeDocumentMoniker": "ProyectoMEIA\\NuevoUsuario.cs",
+              "ToolTip": "C:\\Users\\ojort\\OneDrive\\Documentos\\GitHub\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA\\NuevoUsuario.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ProyectoMEIA\\NuevoUsuario.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T22:26:52.855Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\ojort\\OneDrive\\Documentos\\GitHub\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA\\Form1.cs",
               "RelativeDocumentMoniker": "ProyectoMEIA\\Form1.cs",
               "ToolTip": "C:\\Users\\ojort\\OneDrive\\Documentos\\GitHub\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA\\Form1.cs",
               "RelativeToolTip": "ProyectoMEIA\\Form1.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAAYwAoAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFkAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-10T23:34:53.286Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Form1.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\ojort\\OneDrive\\Documentos\\GitHub\\ProyectoMEIA\\ProyectoMEIA\\ProyectoMEIA\\Form1.cs",
               "RelativeDocumentMoniker": "ProyectoMEIA\\Form1.cs",
