@@ -135,12 +135,13 @@
             // 
             // dtp_FechaNacimiento
             // 
+            dtp_FechaNacimiento.CustomFormat = "dd-MM-yyyy";
             dtp_FechaNacimiento.Format = DateTimePickerFormat.Custom;
             dtp_FechaNacimiento.Location = new Point(380, 264);
             dtp_FechaNacimiento.Name = "dtp_FechaNacimiento";
             dtp_FechaNacimiento.Size = new Size(125, 27);
             dtp_FechaNacimiento.TabIndex = 11;
-            dtp_FechaNacimiento.Value = new DateTime(2024, 10, 10, 0, 0, 0, 0);
+            dtp_FechaNacimiento.Value = new DateTime(2024, 10, 11, 0, 0, 0, 0);
             // 
             // btnRegistrar
             // 
