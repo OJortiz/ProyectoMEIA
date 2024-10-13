@@ -45,8 +45,13 @@ namespace ProyectoMEIA
                 if (campos.Length == 8) // Asegurarse de que haya el número correcto de campos
                 {
                     string usuario = campos[0];
+                    string nombre = campos[1];
+                    string apellido = campos[2];
                     string passwordAlmacenada = campos[3];
+                    int rol = int.Parse(campos[4]);
+                    int telefono = int.Parse(campos[6]);
                     int estatus = int.Parse(campos[7]);
+
 
                     // Verificar si el usuario existe y está activo
                     if (usuario == usuarioIngresado && estatus == 1)
@@ -57,7 +62,21 @@ namespace ProyectoMEIA
                             usuarioEncontrado = true;
                             MessageBox.Show("Inicio de sesión exitoso.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             // Aquí sigue si el login es exitoso, dirige a la pantalla principal
-                            break;
+
+                            if (rol == 1)
+                            {
+                                MenuAdmin admin = new MenuAdmin(usuario, nombre, apellido, telefono);
+                                admin.Show();
+                                this.Hide();
+                                break;
+                            }
+                            else
+                            {
+                                MenuUsuario user = new MenuUsuario(usuario, nombre, apellido, telefono);
+                                user.Show();
+                                this.Hide();
+                                break;
+                            }
                         }
                         else
                         {

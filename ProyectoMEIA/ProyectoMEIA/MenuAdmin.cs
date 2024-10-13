@@ -12,9 +12,14 @@ namespace ProyectoMEIA
 {
     public partial class MenuAdmin : Form
     {
-        public MenuAdmin()
+        public MenuAdmin(string usuario, string nombre, string apellido, int telefono)
         {
             InitializeComponent();
+
+            lUsuario.Text = usuario;
+            lNombre.Text = nombre + " " + apellido;
+            lRol.Text = "Administrador";
+            lTelefono.Text = telefono.ToString();
         }
     }
 }

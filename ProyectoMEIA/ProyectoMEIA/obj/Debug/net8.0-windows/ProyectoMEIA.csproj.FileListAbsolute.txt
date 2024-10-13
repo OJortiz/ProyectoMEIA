@@ -34,3 +34,6 @@ C:\Users\maron\source\repos\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net
 C:\Users\maron\source\repos\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net8.0-windows\ProyectoMEIA.pdb
 C:\Users\maron\source\repos\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net8.0-windows\ProyectoMEIA.genruntimeconfig.cache
 C:\Users\maron\source\repos\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net8.0-windows\ref\ProyectoMEIA.dll
+C:\Users\maron\source\repos\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net8.0-windows\ProyectoMEIA.MenuAdmin.resources
+C:\Users\maron\source\repos\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net8.0-windows\ProyectoMEIA.MenuUsuario.resources
+C:\Users\maron\source\repos\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net8.0-windows\ProyectoMEIA.Properties.Resources.resources

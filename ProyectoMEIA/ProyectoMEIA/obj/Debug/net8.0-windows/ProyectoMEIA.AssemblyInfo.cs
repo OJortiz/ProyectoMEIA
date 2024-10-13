@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProyectoMEIA")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3387b7ff5b84c731200715c287c6bb58d725d922")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d19bd1b6318469b35ae8d58535fb0a1d8c444d70")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProyectoMEIA")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProyectoMEIA")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
