@@ -65,18 +65,22 @@
             // 
             txt_username.BackColor = Color.FromArgb(64, 64, 64);
             txt_username.BorderStyle = BorderStyle.FixedSingle;
+            txt_username.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txt_username.ForeColor = Color.White;
             txt_username.Location = new Point(61, 115);
             txt_username.Name = "txt_username";
-            txt_username.Size = new Size(329, 27);
+            txt_username.Size = new Size(329, 25);
             txt_username.TabIndex = 2;
             // 
             // txt_password
             // 
             txt_password.BackColor = Color.FromArgb(64, 64, 64);
             txt_password.BorderStyle = BorderStyle.FixedSingle;
+            txt_password.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txt_password.ForeColor = Color.White;
             txt_password.Location = new Point(61, 228);
             txt_password.Name = "txt_password";
-            txt_password.Size = new Size(329, 27);
+            txt_password.Size = new Size(329, 25);
             txt_password.TabIndex = 3;
             txt_password.UseSystemPasswordChar = true;
             // 

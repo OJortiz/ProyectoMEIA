@@ -33,33 +33,27 @@
             lUsuario = new Label();
             lTelefono = new Label();
             panel1 = new Panel();
-            panel5 = new Panel();
             panel6 = new Panel();
-            panel7 = new Panel();
+            btnActualizarDatos = new Button();
+            panel5 = new Panel();
             btnLogout = new Button();
             panel2 = new Panel();
             panel3 = new Panel();
             panel9 = new Panel();
             pictureBox1 = new PictureBox();
             panel4 = new Panel();
-            panel8 = new Panel();
-            label1 = new Label();
-            label2 = new Label();
+            panelOpciones = new Panel();
             button1 = new Button();
-            button2 = new Button();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            linkLabel1 = new LinkLabel();
-            label3 = new Label();
+            panel7 = new Panel();
             panel1.SuspendLayout();
+            panel6.SuspendLayout();
             panel5.SuspendLayout();
-            panel7.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
-            panel8.SuspendLayout();
+            panel7.SuspendLayout();
             SuspendLayout();
             // 
             // lnombre
@@ -105,6 +99,8 @@
             // panel1
             // 
             panel1.BackColor = Color.Navy;
+            panel1.Controls.Add(panel7);
+            panel1.Controls.Add(panel6);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Left;
@@ -113,32 +109,38 @@
             panel1.Size = new Size(255, 450);
             panel1.TabIndex = 5;
             // 
+            // panel6
+            // 
+            panel6.Controls.Add(btnActualizarDatos);
+            panel6.Dock = DockStyle.Top;
+            panel6.Location = new Point(0, 155);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(255, 43);
+            panel6.TabIndex = 2;
+            // 
+            // btnActualizarDatos
+            // 
+            btnActualizarDatos.Dock = DockStyle.Fill;
+            btnActualizarDatos.FlatAppearance.BorderSize = 0;
+            btnActualizarDatos.FlatStyle = FlatStyle.Flat;
+            btnActualizarDatos.Font = new Font("Arial", 10.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            btnActualizarDatos.ForeColor = Color.White;
+            btnActualizarDatos.Location = new Point(0, 0);
+            btnActualizarDatos.Name = "btnActualizarDatos";
+            btnActualizarDatos.Size = new Size(255, 43);
+            btnActualizarDatos.TabIndex = 0;
+            btnActualizarDatos.Text = "Actualizar Perfil";
+            btnActualizarDatos.UseVisualStyleBackColor = true;
+            btnActualizarDatos.Click += btnActualizarDatos_Click;
+            // 
             // panel5
             // 
-            panel5.Controls.Add(panel6);
-            panel5.Controls.Add(panel7);
+            panel5.Controls.Add(btnLogout);
             panel5.Dock = DockStyle.Bottom;
             panel5.Location = new Point(0, 387);
             panel5.Name = "panel5";
             panel5.Size = new Size(255, 63);
             panel5.TabIndex = 1;
-            // 
-            // panel6
-            // 
-            panel6.Dock = DockStyle.Fill;
-            panel6.Location = new Point(0, 0);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(103, 63);
-            panel6.TabIndex = 0;
-            // 
-            // panel7
-            // 
-            panel7.Controls.Add(btnLogout);
-            panel7.Dock = DockStyle.Right;
-            panel7.Location = new Point(103, 0);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(152, 63);
-            panel7.TabIndex = 1;
             // 
             // btnLogout
             // 
@@ -149,10 +151,9 @@
             btnLogout.ForeColor = Color.White;
             btnLogout.Location = new Point(0, 0);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(152, 63);
+            btnLogout.Size = new Size(255, 63);
             btnLogout.TabIndex = 0;
             btnLogout.Text = "Cerrar Sesion";
-            btnLogout.TextAlign = ContentAlignment.MiddleLeft;
             btnLogout.UseVisualStyleBackColor = true;
             // 
             // panel2
@@ -208,90 +209,37 @@
             panel4.Size = new Size(140, 155);
             panel4.TabIndex = 1;
             // 
-            // panel8
+            // panelOpciones
             // 
-            panel8.Controls.Add(label3);
-            panel8.Controls.Add(linkLabel1);
-            panel8.Controls.Add(textBox2);
-            panel8.Controls.Add(textBox1);
-            panel8.Controls.Add(button2);
-            panel8.Controls.Add(button1);
-            panel8.Controls.Add(label2);
-            panel8.Controls.Add(label1);
-            panel8.Dock = DockStyle.Fill;
-            panel8.Location = new Point(255, 0);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(545, 450);
-            panel8.TabIndex = 6;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(78, 91);
-            label1.Name = "label1";
-            label1.Size = new Size(67, 20);
-            label1.TabIndex = 0;
-            label1.Text = "Telefono";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(78, 156);
-            label2.Name = "label2";
-            label2.Size = new Size(149, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Fecha de Nacimiento";
+            panelOpciones.Dock = DockStyle.Fill;
+            panelOpciones.Location = new Point(255, 0);
+            panelOpciones.Name = "panelOpciones";
+            panelOpciones.Size = new Size(545, 450);
+            panelOpciones.TabIndex = 6;
             // 
             // button1
             // 
-            button1.Location = new Point(133, 237);
+            button1.Dock = DockStyle.Fill;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(0, 0);
             button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 2;
-            button1.Text = "Actualizar";
+            button1.Size = new Size(255, 38);
+            button1.TabIndex = 0;
+            button1.Text = "Cambiar Contraseña";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
-            // button2
+            // panel7
             // 
-            button2.Location = new Point(309, 237);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 3;
-            button2.Text = "Limpiar";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(309, 84);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 4;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(309, 149);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 5;
-            // 
-            // linkLabel1
-            // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(183, 333);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(143, 20);
-            linkLabel1.TabIndex = 6;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Cambiar Contraseña";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(183, 28);
-            label3.Name = "label3";
-            label3.Size = new Size(162, 20);
-            label3.TabIndex = 7;
-            label3.Text = "Actualizacion de Datos";
+            panel7.Controls.Add(button1);
+            panel7.Dock = DockStyle.Top;
+            panel7.Location = new Point(0, 198);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(255, 38);
+            panel7.TabIndex = 3;
             // 
             // MenuUsuario
             // 
@@ -299,21 +247,20 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             ControlBox = false;
-            Controls.Add(panel8);
+            Controls.Add(panelOpciones);
             Controls.Add(panel1);
             Name = "MenuUsuario";
             Text = "MenuUsuario";
             panel1.ResumeLayout(false);
+            panel6.ResumeLayout(false);
             panel5.ResumeLayout(false);
-            panel7.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            panel8.ResumeLayout(false);
-            panel8.PerformLayout();
+            panel7.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -329,18 +276,12 @@
         private Panel panel3;
         private PictureBox pictureBox1;
         private Panel panel5;
-        private Panel panel7;
-        private Panel panel6;
-        private Panel panel8;
+        private Panel panelOpciones;
         private Button btnLogout;
         private Panel panel9;
-        private Label label3;
-        private LinkLabel linkLabel1;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private Button button2;
+        private Panel panel6;
+        private Button btnActualizarDatos;
+        private Panel panel7;
         private Button button1;
-        private Label label2;
-        private Label label1;
     }
 }
