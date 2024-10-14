@@ -40,7 +40,8 @@ namespace ProyectoMEIA
 
         private void btnActualizarDatos_Click(object sender, EventArgs e)
         {
-            ActualizacionUsuario actualizar_datos = new ActualizacionUsuario();
+            string nombreU = lUsuario.Text;
+            ActualizacionUsuario actualizar_datos = new ActualizacionUsuario(nombreU, this);
             MostrarFormPanel(actualizar_datos);
         }
 
@@ -49,6 +50,12 @@ namespace ProyectoMEIA
             string nombreU = lUsuario.Text;
             ActualizacionContraseña actualizar_contra = new ActualizacionContraseña(nombreU);
             MostrarFormPanel(actualizar_contra);
+        }
+
+        // Método para actualizar la etiqueta del teléfono
+        public void ActualizarTelefonoEtiqueta(string nuevoTelefono)
+        {
+            lTelefono.Text = nuevoTelefono;
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -61,7 +68,7 @@ namespace ProyectoMEIA
             if (confirmResult == DialogResult.Yes)
             {
                 // Regresar a la pantalla de inicio
-                this.Hide();
+                this.Close();
                 Form_Main loginForm = new Form_Main();
                 loginForm.Show();
             }
@@ -104,7 +111,7 @@ namespace ProyectoMEIA
                 }
 
                 // Regresar a la pantalla de inicio
-                this.Hide();
+                this.Close();
                 Form_Main loginForm = new Form_Main();
                 loginForm.Show();
             }

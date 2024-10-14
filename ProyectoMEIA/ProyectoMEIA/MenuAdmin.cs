@@ -21,5 +21,25 @@ namespace ProyectoMEIA
             lRol.Text = "Administrador";
             lTelefono.Text = telefono.ToString();
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("¿Estás seguro de que deseas cerrar sesión?",
+                             "Confirmación",
+                             MessageBoxButtons.YesNo,
+                             MessageBoxIcon.Question);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                // Regresar a la pantalla de inicio
+                this.Close();
+                Form_Main loginForm = new Form_Main();
+                loginForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Permanecerás en la aplicación.", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }

@@ -42,7 +42,7 @@
             dtp_FechaNacimiento = new DateTimePicker();
             btnRegistrar = new Button();
             label7 = new Label();
-            button1 = new Button();
+            btn_Login = new Button();
             SuspendLayout();
             // 
             // label1
@@ -199,17 +199,18 @@
             label7.TabIndex = 13;
             label7.Text = "Ingrese sus datos:";
             // 
-            // button1
+            // btn_Login
             // 
-            button1.BackColor = Color.SteelBlue;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(419, 460);
-            button1.Margin = new Padding(4, 3, 4, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(198, 60);
-            button1.TabIndex = 14;
-            button1.Text = "Limpiar";
-            button1.UseVisualStyleBackColor = false;
+            btn_Login.BackColor = Color.SteelBlue;
+            btn_Login.FlatStyle = FlatStyle.Flat;
+            btn_Login.Location = new Point(419, 460);
+            btn_Login.Margin = new Padding(4, 3, 4, 3);
+            btn_Login.Name = "btn_Login";
+            btn_Login.Size = new Size(198, 60);
+            btn_Login.TabIndex = 14;
+            btn_Login.Text = "Login";
+            btn_Login.UseVisualStyleBackColor = false;
+            btn_Login.Click += btn_Login_Click;
             // 
             // NuevoUsuario
             // 
@@ -217,7 +218,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SteelBlue;
             ClientSize = new Size(764, 562);
-            Controls.Add(button1);
+            Controls.Add(btn_Login);
             Controls.Add(label7);
             Controls.Add(btnRegistrar);
             Controls.Add(dtp_FechaNacimiento);
@@ -258,6 +259,6 @@
         private DateTimePicker dtp_FechaNacimiento;
         private Button btnRegistrar;
         private Label label7;
-        private Button button1;
+        private Button btn_Login;
     }
 }

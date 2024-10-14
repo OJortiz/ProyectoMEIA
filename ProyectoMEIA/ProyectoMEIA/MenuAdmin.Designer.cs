@@ -104,6 +104,7 @@
             btnLogout.Text = "Cerrar Sesion";
             btnLogout.TextAlign = ContentAlignment.MiddleLeft;
             btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // panel2
             // 

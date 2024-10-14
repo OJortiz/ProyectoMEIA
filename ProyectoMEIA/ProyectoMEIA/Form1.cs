@@ -1,5 +1,6 @@
 using System.Text;
 using System.Security.Cryptography;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ProyectoMEIA
 {
@@ -67,14 +68,14 @@ namespace ProyectoMEIA
                             {
                                 MenuAdmin admin = new MenuAdmin(usuario, nombre, apellido, telefono);
                                 admin.Show();
-                                this.Hide();
+                                this.Close();
                                 break;
                             }
                             else
                             {
                                 MenuUsuario user = new MenuUsuario(usuario, nombre, apellido, telefono);
                                 user.Show();
-                                this.Hide();
+                                this.Close();
                                 break;
                             }
                         }
@@ -112,6 +113,7 @@ namespace ProyectoMEIA
         {
             NuevoUsuario nuevo = new NuevoUsuario();
             nuevo.Show();
+            this.Hide();
         }
     }
 }

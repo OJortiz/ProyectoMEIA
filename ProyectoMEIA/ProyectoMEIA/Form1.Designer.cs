@@ -119,7 +119,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Arial Rounded MT Bold", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(121, 9);
+            label1.Location = new Point(134, 21);
             label1.Name = "label1";
             label1.Size = new Size(201, 39);
             label1.TabIndex = 6;

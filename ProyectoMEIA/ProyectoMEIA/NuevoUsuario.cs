@@ -21,16 +21,51 @@ namespace ProyectoMEIA
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            string usuario = txtUsuario.Text;
-            string nombre = txtNombre.Text;
-            string apellido = txtApellido.Text;
-            string contra = txtPassword.Text;
+            string usuario = txtUsuario.Text.Trim();
+            string nombre = txtNombre.Text.Trim();
+            string apellido = txtApellido.Text.Trim();
+            string contra = txtPassword.Text.Trim();
             string fechaNacimiento = dtp_FechaNacimiento.Value.ToString("dd/MM/yyyy");
-            int telefono = Int32.Parse(txtTelefono.Text);
+            string telefonoStr = txtTelefono.Text.Trim();
             int estatus = 1;
 
-            string nivelSeguridad = EvaluarPassword(contra);
+            // Validación de campos vacíos
+            if (string.IsNullOrEmpty(usuario))
+            {
+                MessageBox.Show("El campo de usuario no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            if (string.IsNullOrEmpty(nombre))
+            {
+                MessageBox.Show("El campo de nombre no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(apellido))
+            {
+                MessageBox.Show("El campo de apellido no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(contra))
+            {
+                MessageBox.Show("El campo de contraseña no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Validación del teléfono
+            if (telefonoStr.Length != 8 || !telefonoStr.All(char.IsDigit))
+            {
+                MessageBox.Show("El número de teléfono debe ser numérico y tener exactamente 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Convertir a entero después de la validación
+            int telefono = Int32.Parse(telefonoStr);
+
+            // Evaluar nivel de seguridad de la contraseña
+            string nivelSeguridad = EvaluarPassword(contra);
             if (nivelSeguridad == "baja")
             {
                 MessageBox.Show("La contraseña es de nivel bajo. No se puede usar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -41,30 +76,32 @@ namespace ProyectoMEIA
                 MessageBox.Show($"Nivel de seguridad de la contraseña: {nivelSeguridad}.", "Seguridad de Contraseña", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
+            // Validaciones de longitud máxima
             if (usuario.Length > 20)
             {
-                MessageBox.Show("El usuario tiene que ser de 20 caracteres máximo.");
+                MessageBox.Show("El usuario tiene que ser de 20 caracteres máximo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (nombre.Length > 30)
             {
-                MessageBox.Show("El nombre tiene que ser de 30 caracteres máximo.");
+                MessageBox.Show("El nombre tiene que ser de 30 caracteres máximo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (apellido.Length > 30)
             {
-                MessageBox.Show("El apellido tiene que ser de 30 caracteres máximo.");
+                MessageBox.Show("El apellido tiene que ser de 30 caracteres máximo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (contra.Length > 15)
             {
-                MessageBox.Show("La contraseña tiene que ser de 15 caracteres máximo.");
+                MessageBox.Show("La contraseña tiene que ser de 15 caracteres máximo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            // Verificar si el usuario ya existe
             if (File.Exists(archivo_usuario))
             {
                 string[] lineas = File.ReadAllLines(archivo_usuario);
@@ -73,14 +110,16 @@ namespace ProyectoMEIA
                     string[] campos = linea.Split(';');
                     if (campos[0] == usuario)
                     {
-                        MessageBox.Show("El usuario ya existe.");
+                        MessageBox.Show("El usuario ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
             }
 
+            // Cifrar la contraseña
             string contraCifrada = CifrarSHA256(contra);
 
+            // Asignar rol (el primer usuario será administrador)
             int rol = 0;
             if (!File.Exists(archivo_usuario) || new FileInfo(archivo_usuario).Length == 0)
             {
@@ -96,13 +135,15 @@ namespace ProyectoMEIA
                 sw.WriteLine(nuevoRegistro);
             }
 
-            MessageBox.Show("Usuario registrado con éxito.");
+            MessageBox.Show("Usuario registrado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            // Limpiar campos después de registrar
             txtUsuario.Clear();
             txtNombre.Clear();
             txtApellido.Clear();
             txtPassword.Clear();
             txtTelefono.Clear();
+
 
         }
 
@@ -147,6 +188,11 @@ namespace ProyectoMEIA
             }
         }
 
-
+        private void btn_Login_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form_Main loginForm = new Form_Main();
+            loginForm.Show();
+        }
     }
 }
