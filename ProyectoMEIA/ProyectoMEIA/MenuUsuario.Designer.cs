@@ -45,6 +45,7 @@
             pictureBox1 = new PictureBox();
             panel4 = new Panel();
             panelOpciones = new Panel();
+            btn_darseBaja = new Button();
             panel1.SuspendLayout();
             panel7.SuspendLayout();
             panel6.SuspendLayout();
@@ -99,6 +100,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Navy;
+            panel1.Controls.Add(btn_darseBaja);
             panel1.Controls.Add(panel7);
             panel1.Controls.Add(panel6);
             panel1.Controls.Add(panel5);
@@ -242,6 +244,16 @@
             panelOpciones.Size = new Size(545, 450);
             panelOpciones.TabIndex = 6;
             // 
+            // btn_darseBaja
+            // 
+            btn_darseBaja.Location = new Point(66, 296);
+            btn_darseBaja.Name = "btn_darseBaja";
+            btn_darseBaja.Size = new Size(122, 59);
+            btn_darseBaja.TabIndex = 4;
+            btn_darseBaja.Text = "Deshabilitar Cuenta";
+            btn_darseBaja.UseVisualStyleBackColor = true;
+            btn_darseBaja.Click += btn_darseBaja_Click;
+            // 
             // MenuUsuario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -250,6 +262,7 @@
             ControlBox = false;
             Controls.Add(panelOpciones);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "MenuUsuario";
             Text = "MenuUsuario";
             panel1.ResumeLayout(false);
@@ -284,5 +297,6 @@
         private Button btnActualizarDatos;
         private Panel panel7;
         private Button btn_CambioPassU;
+        private Button btn_darseBaja;
     }
 }

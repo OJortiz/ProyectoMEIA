@@ -8,6 +8,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace ProyectoMEIA
@@ -52,7 +53,65 @@ namespace ProyectoMEIA
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            var confirmResult = MessageBox.Show("¿Estás seguro de que deseas cerrar sesión?",
+                                         "Confirmación",
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
 
+            if (confirmResult == DialogResult.Yes)
+            {
+                // Regresar a la pantalla de inicio
+                this.Hide();
+                Form_Main loginForm = new Form_Main();
+                loginForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Permanecerás en la aplicación.", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btn_darseBaja_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("¿Estás seguro de que deseas darte de baja?",
+                                         "Confirmación",
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                // Actualizar el estatus del usuario a 0 (inactivo)
+                string rutaArchivoUsuarios = @"C:\MEIA\user.txt";
+                if (File.Exists(rutaArchivoUsuarios))
+                {
+                    string[] lineas = File.ReadAllLines(rutaArchivoUsuarios);
+                    for (int i = 0; i < lineas.Length; i++)
+                    {
+                        string[] campos = lineas[i].Split(';');
+                        if (campos[0] == lUsuario.Text) // Verificamos el usuario actual
+                        {
+                            campos[7] = "0"; // Cambiar estatus a inactivo
+                            lineas[i] = string.Join(";", campos);
+                            break;
+                        }
+                    }
+                    File.WriteAllLines(rutaArchivoUsuarios, lineas);
+                    MessageBox.Show("Te has dado de baja con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el archivo de usuarios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Regresar a la pantalla de inicio
+                this.Hide();
+                Form_Main loginForm = new Form_Main();
+                loginForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Continuarás con tu sesión actual.", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
