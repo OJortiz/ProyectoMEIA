@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             lbl_Username = new Label();
             lbl_password = new Label();
             txt_username = new TextBox();
@@ -91,7 +92,7 @@
             btn_login.FlatStyle = FlatStyle.Flat;
             btn_login.Font = new Font("Arial", 9F, FontStyle.Bold);
             btn_login.ForeColor = Color.White;
-            btn_login.Location = new Point(61, 315);
+            btn_login.Location = new Point(61, 318);
             btn_login.Name = "btn_login";
             btn_login.Size = new Size(136, 62);
             btn_login.TabIndex = 4;
@@ -106,7 +107,7 @@
             btn_createacc.FlatStyle = FlatStyle.Flat;
             btn_createacc.Font = new Font("Arial", 9F, FontStyle.Bold);
             btn_createacc.ForeColor = Color.White;
-            btn_createacc.Location = new Point(254, 315);
+            btn_createacc.Location = new Point(254, 318);
             btn_createacc.Name = "btn_createacc";
             btn_createacc.Size = new Size(136, 62);
             btn_createacc.TabIndex = 5;
@@ -140,8 +141,9 @@
             Controls.Add(lbl_password);
             Controls.Add(lbl_Username);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form_Main";
-            Text = "Proyecto MEIA";
+            Text = "Mensajería";
             ResumeLayout(false);
             PerformLayout();
         }

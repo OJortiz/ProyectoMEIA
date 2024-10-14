@@ -53,7 +53,6 @@ namespace ProyectoMEIA
                     int telefono = int.Parse(campos[6]);
                     int estatus = int.Parse(campos[7]);
 
-
                     // Verificar si el usuario existe y está activo
                     if (usuario == usuarioIngresado && estatus == 1)
                     {
@@ -68,14 +67,14 @@ namespace ProyectoMEIA
                             {
                                 MenuAdmin admin = new MenuAdmin(usuario, nombre, apellido, telefono);
                                 admin.Show();
-                                this.Close();
+                                this.Hide();
                                 break;
                             }
                             else
                             {
                                 MenuUsuario user = new MenuUsuario(usuario, nombre, apellido, telefono);
                                 user.Show();
-                                this.Close();
+                                this.Hide();
                                 break;
                             }
                         }
@@ -88,9 +87,23 @@ namespace ProyectoMEIA
                 }
             }
 
+            // Si no se encontró el usuario, preguntar si desea crear uno nuevo
             if (!usuarioEncontrado)
             {
-                MessageBox.Show("Usuario no encontrado o inactivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult resultado = MessageBox.Show("Usuario no encontrado. ¿Desea crear un nuevo usuario?", "Usuario no encontrado", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    // Redirigir al formulario de crear nuevo usuario, pasando el usuario ingresado
+                    NuevoUsuario crearUsuarioForm = new NuevoUsuario(usuarioIngresado);
+                    crearUsuarioForm.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    // Se queda en el login
+                    MessageBox.Show("Por favor, revise los datos o intente de nuevo.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 

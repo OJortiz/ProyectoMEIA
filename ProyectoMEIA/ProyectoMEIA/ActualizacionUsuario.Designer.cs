@@ -100,7 +100,7 @@
             dtp_NuevaFecha.Name = "dtp_NuevaFecha";
             dtp_NuevaFecha.Size = new Size(170, 27);
             dtp_NuevaFecha.TabIndex = 16;
-            dtp_NuevaFecha.Value = new DateTime(2024, 10, 11, 0, 0, 0, 0);
+            dtp_NuevaFecha.Value = new DateTime(2024, 10, 13, 22, 11, 40, 0);
             // 
             // ActualizacionUsuario
             // 

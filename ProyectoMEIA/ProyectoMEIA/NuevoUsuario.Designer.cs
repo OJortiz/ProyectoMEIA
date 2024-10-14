@@ -172,7 +172,7 @@
             dtp_FechaNacimiento.Name = "dtp_FechaNacimiento";
             dtp_FechaNacimiento.Size = new Size(170, 30);
             dtp_FechaNacimiento.TabIndex = 11;
-            dtp_FechaNacimiento.Value = new DateTime(2024, 10, 11, 0, 0, 0, 0);
+            dtp_FechaNacimiento.Value = new DateTime(2024, 10, 13, 0, 0, 0, 0);
             // 
             // btnRegistrar
             // 

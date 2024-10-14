@@ -14,9 +14,10 @@ namespace ProyectoMEIA
     public partial class NuevoUsuario : Form
     {
         public string archivo_usuario = "C:\\MEIA\\user.txt";
-        public NuevoUsuario()
+        public NuevoUsuario(string nombreUser = null)
         {
             InitializeComponent();
+            txtUsuario.Text = nombreUser;
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)

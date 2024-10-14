@@ -27,18 +27,31 @@ namespace ProyectoMEIA
         private void btn_actualizar_Click(object sender, EventArgs e)
         {
             // Obtener los datos ingresados
-            string nuevoTelefono = txtTelefono.Text;
-            DateTime nuevaFechaNacimiento = dtp_NuevaFecha.Value;
+            string nuevoTelefono = txtTelefono.Text.Trim();
+            DateTime fechaSeleccionada = dtp_NuevaFecha.Value.Date; // Solo la parte de la fecha
+            DateTime fechaActual = DateTime.Today; // Solo la fecha de hoy sin horas
 
-            // Validar el número de teléfono (debe tener 8 dígitos)
-            if (nuevoTelefono.Length != 8 || !nuevoTelefono.All(char.IsDigit))
+            // Ruta del archivo de usuarios
+            string rutaArchivoUsuarios = @"C:\MEIA\user.txt";
+
+            // Validar si no se ha ingresado ni teléfono ni una nueva fecha de nacimiento
+            if (string.IsNullOrEmpty(nuevoTelefono) && fechaSeleccionada == fechaActual)
             {
-                MessageBox.Show("El número de teléfono debe tener 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe ingresar al menos un dato para actualizar (teléfono o fecha de nacimiento).", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            // Validar el número de teléfono si el campo no está vacío
+            if (!string.IsNullOrEmpty(nuevoTelefono))
+            {
+                if (nuevoTelefono.Length != 8 || !nuevoTelefono.All(char.IsDigit))
+                {
+                    MessageBox.Show("El número de teléfono debe tener 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
             // Actualizar los datos en el archivo de usuarios
-            string rutaArchivoUsuarios = @"C:\MEIA\user.txt";
             if (File.Exists(rutaArchivoUsuarios))
             {
                 string[] lineas = File.ReadAllLines(rutaArchivoUsuarios);
@@ -47,18 +60,32 @@ namespace ProyectoMEIA
                     string[] campos = lineas[i].Split(';');
                     if (campos[0] == username) // Verificamos el usuario actual
                     {
-                        // Actualizar el número de teléfono y la fecha de nacimiento
-                        campos[6] = nuevoTelefono; // Índice del teléfono
-                        campos[5] = nuevaFechaNacimiento.ToString("dd/MM/yyyy"); // Índice de la fecha de nacimiento
-                        lineas[i] = string.Join(";", campos);
+                        // Actualizar el teléfono solo si se ingresó un nuevo número
+                        if (!string.IsNullOrEmpty(nuevoTelefono))
+                        {
+                            campos[6] = nuevoTelefono; // Índice del teléfono
+                        }
+
+                        // Actualizar la fecha de nacimiento solo si la fecha seleccionada es diferente a la actual
+                        if (fechaSeleccionada != fechaActual)
+                        {
+                            campos[5] = fechaSeleccionada.ToString("dd/MM/yyyy"); // Índice de la fecha de nacimiento
+                        }
+
+                        lineas[i] = string.Join(";", campos); // Actualizar la línea completa
                         break;
                     }
                 }
 
                 // Guardar los cambios en el archivo
                 File.WriteAllLines(rutaArchivoUsuarios, lineas);
-                // Actualizar la etiqueta en el formulario principal
-                formMenu.ActualizarTelefonoEtiqueta(nuevoTelefono); // Llamada al método en el formulario principal
+
+                // Actualizar la etiqueta en el formulario principal si se cambió el teléfono
+                if (!string.IsNullOrEmpty(nuevoTelefono))
+                {
+                    formMenu.ActualizarTelefonoEtiqueta(nuevoTelefono); // Llamada al método en el formulario principal
+                }
+
                 MessageBox.Show("Datos actualizados con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
