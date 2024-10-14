@@ -31,9 +31,9 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            txtContraActual = new TextBox();
+            txtNuevaContra = new TextBox();
+            txtConfirmarContra = new TextBox();
             btnCambiarContraseña = new Button();
             SuspendLayout();
             // 
@@ -64,26 +64,26 @@
             label3.TabIndex = 2;
             label3.Text = "Confirme su nueva contraseña: ";
             // 
-            // textBox1
+            // txtContraActual
             // 
-            textBox1.Location = new Point(382, 70);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 3;
+            txtContraActual.Location = new Point(382, 70);
+            txtContraActual.Name = "txtContraActual";
+            txtContraActual.Size = new Size(125, 27);
+            txtContraActual.TabIndex = 3;
             // 
-            // textBox2
+            // txtNuevaContra
             // 
-            textBox2.Location = new Point(382, 130);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 4;
+            txtNuevaContra.Location = new Point(382, 130);
+            txtNuevaContra.Name = "txtNuevaContra";
+            txtNuevaContra.Size = new Size(125, 27);
+            txtNuevaContra.TabIndex = 4;
             // 
-            // textBox3
+            // txtConfirmarContra
             // 
-            textBox3.Location = new Point(382, 193);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(125, 27);
-            textBox3.TabIndex = 5;
+            txtConfirmarContra.Location = new Point(382, 193);
+            txtConfirmarContra.Name = "txtConfirmarContra";
+            txtConfirmarContra.Size = new Size(125, 27);
+            txtConfirmarContra.TabIndex = 5;
             // 
             // btnCambiarContraseña
             // 
@@ -93,6 +93,7 @@
             btnCambiarContraseña.TabIndex = 6;
             btnCambiarContraseña.Text = "Cambiar Contraseña";
             btnCambiarContraseña.UseVisualStyleBackColor = true;
+            btnCambiarContraseña.Click += btnCambiarContraseña_Click;
             // 
             // ActualizacionContraseña
             // 
@@ -100,9 +101,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(578, 450);
             Controls.Add(btnCambiarContraseña);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtConfirmarContra);
+            Controls.Add(txtNuevaContra);
+            Controls.Add(txtContraActual);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -117,9 +118,9 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox txtContraActual;
+        private TextBox txtNuevaContra;
+        private TextBox txtConfirmarContra;
         private Button btnCambiarContraseña;
     }
 }

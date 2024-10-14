@@ -33,6 +33,8 @@
             lUsuario = new Label();
             lTelefono = new Label();
             panel1 = new Panel();
+            panel7 = new Panel();
+            btn_CambioPassU = new Button();
             panel6 = new Panel();
             btnActualizarDatos = new Button();
             panel5 = new Panel();
@@ -43,9 +45,8 @@
             pictureBox1 = new PictureBox();
             panel4 = new Panel();
             panelOpciones = new Panel();
-            button1 = new Button();
-            panel7 = new Panel();
             panel1.SuspendLayout();
+            panel7.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
             panel2.SuspendLayout();
@@ -53,7 +54,6 @@
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
-            panel7.SuspendLayout();
             SuspendLayout();
             // 
             // lnombre
@@ -109,6 +109,30 @@
             panel1.Size = new Size(255, 450);
             panel1.TabIndex = 5;
             // 
+            // panel7
+            // 
+            panel7.Controls.Add(btn_CambioPassU);
+            panel7.Dock = DockStyle.Top;
+            panel7.Location = new Point(0, 198);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(255, 38);
+            panel7.TabIndex = 3;
+            // 
+            // btn_CambioPassU
+            // 
+            btn_CambioPassU.Dock = DockStyle.Fill;
+            btn_CambioPassU.FlatAppearance.BorderSize = 0;
+            btn_CambioPassU.FlatStyle = FlatStyle.Flat;
+            btn_CambioPassU.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_CambioPassU.ForeColor = Color.White;
+            btn_CambioPassU.Location = new Point(0, 0);
+            btn_CambioPassU.Name = "btn_CambioPassU";
+            btn_CambioPassU.Size = new Size(255, 38);
+            btn_CambioPassU.TabIndex = 0;
+            btn_CambioPassU.Text = "Cambiar Contraseña";
+            btn_CambioPassU.UseVisualStyleBackColor = true;
+            btn_CambioPassU.Click += button1_Click;
+            // 
             // panel6
             // 
             panel6.Controls.Add(btnActualizarDatos);
@@ -155,6 +179,7 @@
             btnLogout.TabIndex = 0;
             btnLogout.Text = "Cerrar Sesion";
             btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // panel2
             // 
@@ -217,30 +242,6 @@
             panelOpciones.Size = new Size(545, 450);
             panelOpciones.TabIndex = 6;
             // 
-            // button1
-            // 
-            button1.Dock = DockStyle.Fill;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(0, 0);
-            button1.Name = "button1";
-            button1.Size = new Size(255, 38);
-            button1.TabIndex = 0;
-            button1.Text = "Cambiar Contraseña";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // panel7
-            // 
-            panel7.Controls.Add(button1);
-            panel7.Dock = DockStyle.Top;
-            panel7.Location = new Point(0, 198);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(255, 38);
-            panel7.TabIndex = 3;
-            // 
             // MenuUsuario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -252,6 +253,7 @@
             Name = "MenuUsuario";
             Text = "MenuUsuario";
             panel1.ResumeLayout(false);
+            panel7.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel2.ResumeLayout(false);
@@ -260,7 +262,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            panel7.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -282,6 +283,6 @@
         private Panel panel6;
         private Button btnActualizarDatos;
         private Panel panel7;
-        private Button button1;
+        private Button btn_CambioPassU;
     }
 }

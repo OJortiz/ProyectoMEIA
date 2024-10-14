@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +23,7 @@ namespace ProyectoMEIA
             lRol.Text = "Usuario";
             lTelefono.Text = telefono.ToString();
         }
+
         //La funcion MostrarFormPanel a
         private void MostrarFormPanel(Form form)
         {
@@ -43,8 +45,14 @@ namespace ProyectoMEIA
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ActualizacionContraseña actualizar_contra = new ActualizacionContraseña();
+            string nombreU = lUsuario.Text;
+            ActualizacionContraseña actualizar_contra = new ActualizacionContraseña(nombreU);
             MostrarFormPanel(actualizar_contra);
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

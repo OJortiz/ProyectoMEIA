@@ -106,7 +106,7 @@ namespace ProyectoMEIA
 
         }
 
-        private string EvaluarPassword(string password)
+        public string EvaluarPassword(string password)
         {
             int puntuacion = 0;
 
@@ -132,7 +132,7 @@ namespace ProyectoMEIA
             return "alta";
         }
 
-        private string CifrarSHA256(string input)
+        public string CifrarSHA256(string input)
         {
             using (SHA256 sha256Hash = SHA256.Create())
             {

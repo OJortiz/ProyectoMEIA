@@ -39,3 +39,8 @@ C:\Users\maron\source\repos\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net
 C:\Users\maron\source\repos\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net8.0-windows\ProyectoMEIA.Properties.Resources.resources
 C:\Users\maron\source\repos\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net8.0-windows\ProyectoMEIA.ActualizacionUsuario.resources
 C:\Users\maron\source\repos\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net8.0-windows\ProyectoMEIA.ActualizacionContraseña.resources
+C:\Users\ojort\OneDrive\Documentos\GitHub\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net8.0-windows\ProyectoMEIA.ActualizacionContraseña.resources
+C:\Users\ojort\OneDrive\Documentos\GitHub\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net8.0-windows\ProyectoMEIA.ActualizacionUsuario.resources
+C:\Users\ojort\OneDrive\Documentos\GitHub\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net8.0-windows\ProyectoMEIA.MenuAdmin.resources
+C:\Users\ojort\OneDrive\Documentos\GitHub\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net8.0-windows\ProyectoMEIA.MenuUsuario.resources
+C:\Users\ojort\OneDrive\Documentos\GitHub\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net8.0-windows\ProyectoMEIA.Properties.Resources.resources
