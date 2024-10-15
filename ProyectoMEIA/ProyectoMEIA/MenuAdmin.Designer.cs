@@ -51,6 +51,7 @@
             lNombre = new Label();
             lTelefono = new Label();
             saveFileDialog1 = new SaveFileDialog();
+            panelOpciones = new Panel();
             panel1.SuspendLayout();
             panel11.SuspendLayout();
             panel10.SuspendLayout();
@@ -127,6 +128,7 @@
             btnBuscarUsuario.TabIndex = 5;
             btnBuscarUsuario.Text = "Buscar Usuario";
             btnBuscarUsuario.UseVisualStyleBackColor = true;
+            btnBuscarUsuario.Click += btnBuscarUsuario_Click;
             // 
             // panel8
             // 
@@ -319,11 +321,20 @@
             saveFileDialog1.Filter = "Archivos de Texto (*.txt)|*.txt";
             saveFileDialog1.Title = "Guardar Como";
             // 
+            // panelOpciones
+            // 
+            panelOpciones.Dock = DockStyle.Fill;
+            panelOpciones.Location = new Point(255, 0);
+            panelOpciones.Name = "panelOpciones";
+            panelOpciones.Size = new Size(545, 450);
+            panelOpciones.TabIndex = 7;
+            // 
             // MenuAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(panelOpciones);
             Controls.Add(panel1);
             Name = "MenuAdmin";
             Text = "MenuAdmin";
@@ -368,5 +379,6 @@
         private Panel panel11;
         private Button btnBackup;
         private SaveFileDialog saveFileDialog1;
+        private Panel panelOpciones;
     }
 }

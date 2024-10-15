@@ -23,6 +23,17 @@ namespace ProyectoMEIA
             lRol.Text = "Administrador";
             lTelefono.Text = telefono.ToString();
         }
+        private void MostrarFormPanel(Form form)
+        {
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+
+            panelOpciones.Controls.Clear();
+            panelOpciones.Controls.Add(form);
+            panelOpciones.Tag = form;
+            form.Show();
+        }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -140,5 +151,10 @@ namespace ProyectoMEIA
             }
         }
 
+        private void btnBuscarUsuario_Click(object sender, EventArgs e)
+        {
+            BuscarUsuario buscar = new BuscarUsuario();
+            MostrarFormPanel(buscar);
+        }
     }
 }

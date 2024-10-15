@@ -25,7 +25,6 @@ namespace ProyectoMEIA
             lTelefono.Text = telefono.ToString();
         }
 
-        //La funcion MostrarFormPanel a
         private void MostrarFormPanel(Form form)
         {
             form.TopLevel = false;
