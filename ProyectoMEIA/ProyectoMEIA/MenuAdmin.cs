@@ -48,44 +48,63 @@ namespace ProyectoMEIA
         {
             try
             {
-                if (File.Exists(archivo_usuario))
+                string directorioMEIA = @"C:\MEIA";
+
+                if (Directory.Exists(directorioMEIA))
                 {
-                    string [] contenido_usuarios = File.ReadAllLines(archivo_usuario);
-                    if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+                    // Abrir el diálogo para seleccionar la ubicación del respaldo
+                    FolderBrowserDialog folderDialog = new FolderBrowserDialog();
+                    if (folderDialog.ShowDialog() == DialogResult.OK)
                     {
-                        string archivo_backup = saveFileDialog1.FileName;
-                        File.WriteAllLines(archivo_backup, contenido_usuarios);
-                        string fecha_operacion = DateTime.Now.ToString("dd/MM/yyyy");
+                        // Obtener la ruta seleccionada por el usuario
+                        string rutaDestino = Path.Combine(folderDialog.SelectedPath, "MEIA_Backup");
 
-                        string entradaArchivo = "";
-                        foreach(string linea in contenido_usuarios)
+                        if (!Directory.Exists(rutaDestino))
                         {
-                            string [] campos = linea.Split(';');
-
-                            if (campos.Length == 8)
-                            {
-                                string usuario = campos[0];
-                                entradaArchivo += $"{archivo_backup};{usuario};{fecha_operacion}\n";
-                            }
+                            Directory.CreateDirectory(rutaDestino);
                         }
-                        string informacionActual = "";
+
+                        // Copiar todos los archivos y subdirectorios de MEIA al nuevo directorio de respaldo
+                        foreach (string archivo in Directory.GetFiles(directorioMEIA))
+                        {
+                            string nombreArchivo = Path.GetFileName(archivo);
+                            string destinoArchivo = Path.Combine(rutaDestino, nombreArchivo);
+                            File.Copy(archivo, destinoArchivo, true);
+                        }
+
+                        foreach (string directorio in Directory.GetDirectories(directorioMEIA))
+                        {
+                            string nombreDirectorio = Path.GetFileName(directorio);
+                            string destinoDirectorio = Path.Combine(rutaDestino, nombreDirectorio);
+                            DirectoryCopy(directorio, destinoDirectorio);
+                        }
+
+                        // Registrar la operación en la bitácora
+                        string fechaOperacion = DateTime.Now.ToString("dd/MM/yyyy");
+                        string rutaCompleta = Path.GetFullPath(rutaDestino);
+                        string usuarioBackup = lUsuario.Text;
+
+                        string entradaBitacora = $"{rutaCompleta};{usuarioBackup};{fechaOperacion}\n";
+
                         if (File.Exists(archivo_bitacora))
                         {
-                            informacionActual = File.ReadAllText(archivo_bitacora);
+                            File.AppendAllText(archivo_bitacora, entradaBitacora);
                         }
-                        entradaArchivo += informacionActual;
-                        File.WriteAllText(archivo_bitacora, entradaArchivo);
+                        else
+                        {
+                            File.WriteAllText(archivo_bitacora, entradaBitacora);
+                        }
 
-                        MessageBox.Show("Copia de Seguridad realizada exitosamente");
+                        MessageBox.Show("Copia de seguridad realizada exitosamente.");
                     }
                     else
                     {
-                        MessageBox.Show("Operacion Cancelada");
+                        MessageBox.Show("Operación cancelada.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("No se encontro ningun archivo de usuarios");
+                    MessageBox.Show("No se encontró el directorio MEIA.");
                 }
             }
             catch (Exception ex)
@@ -93,5 +112,33 @@ namespace ProyectoMEIA
                 MessageBox.Show("Error al procesar los archivos: " + ex.Message);
             }
         }
+
+        private static void DirectoryCopy(string sourceDirName, string destDirName)
+        {
+            DirectoryInfo dir = new DirectoryInfo(sourceDirName);
+            DirectoryInfo[] dirs = dir.GetDirectories();
+
+            // Si el directorio de destino no existe, crearlo
+            if (!Directory.Exists(destDirName))
+            {
+                Directory.CreateDirectory(destDirName);
+            }
+
+            // Copiar todos los archivos del directorio
+            FileInfo[] files = dir.GetFiles();
+            foreach (FileInfo file in files)
+            {
+                string tempPath = Path.Combine(destDirName, file.Name);
+                file.CopyTo(tempPath, false);
+            }
+
+            // Copiar todos los subdirectorios recursivamente
+            foreach (DirectoryInfo subdir in dirs)
+            {
+                string tempPath = Path.Combine(destDirName, subdir.Name);
+                DirectoryCopy(subdir.FullName, tempPath);
+            }
+        }
+
     }
 }
