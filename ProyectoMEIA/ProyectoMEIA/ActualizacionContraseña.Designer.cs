@@ -70,6 +70,7 @@
             txtContraActual.Name = "txtContraActual";
             txtContraActual.Size = new Size(125, 27);
             txtContraActual.TabIndex = 3;
+            txtContraActual.UseSystemPasswordChar = true;
             // 
             // txtNuevaContra
             // 
@@ -77,6 +78,7 @@
             txtNuevaContra.Name = "txtNuevaContra";
             txtNuevaContra.Size = new Size(125, 27);
             txtNuevaContra.TabIndex = 4;
+            txtNuevaContra.UseSystemPasswordChar = true;
             // 
             // txtConfirmarContra
             // 
@@ -84,6 +86,7 @@
             txtConfirmarContra.Name = "txtConfirmarContra";
             txtConfirmarContra.Size = new Size(125, 27);
             txtConfirmarContra.TabIndex = 5;
+            txtConfirmarContra.UseSystemPasswordChar = true;
             // 
             // btnCambiarContraseña
             // 

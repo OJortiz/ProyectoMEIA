@@ -29,9 +29,17 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            panel5 = new Panel();
-            panel6 = new Panel();
+            panel11 = new Panel();
+            btnBackup = new Button();
+            panel10 = new Panel();
+            btnBuscarUsuario = new Button();
+            panel8 = new Panel();
+            btnIngresarUsuario = new Button();
             panel7 = new Panel();
+            btnCambiarContra = new Button();
+            panel6 = new Panel();
+            btnActualizarDatos = new Button();
+            panel5 = new Panel();
             btnLogout = new Button();
             panel2 = new Panel();
             panel3 = new Panel();
@@ -42,9 +50,14 @@
             lUsuario = new Label();
             lNombre = new Label();
             lTelefono = new Label();
+            saveFileDialog1 = new SaveFileDialog();
             panel1.SuspendLayout();
-            panel5.SuspendLayout();
+            panel11.SuspendLayout();
+            panel10.SuspendLayout();
+            panel8.SuspendLayout();
             panel7.SuspendLayout();
+            panel6.SuspendLayout();
+            panel5.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel9.SuspendLayout();
@@ -55,6 +68,11 @@
             // panel1
             // 
             panel1.BackColor = Color.Navy;
+            panel1.Controls.Add(panel11);
+            panel1.Controls.Add(panel10);
+            panel1.Controls.Add(panel8);
+            panel1.Controls.Add(panel7);
+            panel1.Controls.Add(panel6);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Left;
@@ -63,32 +81,130 @@
             panel1.Size = new Size(255, 450);
             panel1.TabIndex = 6;
             // 
+            // panel11
+            // 
+            panel11.Controls.Add(btnBackup);
+            panel11.Dock = DockStyle.Top;
+            panel11.Location = new Point(0, 334);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(255, 47);
+            panel11.TabIndex = 6;
+            // 
+            // btnBackup
+            // 
+            btnBackup.Dock = DockStyle.Fill;
+            btnBackup.FlatAppearance.BorderSize = 0;
+            btnBackup.FlatStyle = FlatStyle.Flat;
+            btnBackup.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBackup.ForeColor = Color.White;
+            btnBackup.Location = new Point(0, 0);
+            btnBackup.Name = "btnBackup";
+            btnBackup.Size = new Size(255, 47);
+            btnBackup.TabIndex = 6;
+            btnBackup.Text = "Copia de Seguridad";
+            btnBackup.UseVisualStyleBackColor = true;
+            btnBackup.Click += btnBackup_Click;
+            // 
+            // panel10
+            // 
+            panel10.Controls.Add(btnBuscarUsuario);
+            panel10.Dock = DockStyle.Top;
+            panel10.Location = new Point(0, 293);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(255, 41);
+            panel10.TabIndex = 5;
+            // 
+            // btnBuscarUsuario
+            // 
+            btnBuscarUsuario.Dock = DockStyle.Fill;
+            btnBuscarUsuario.FlatAppearance.BorderSize = 0;
+            btnBuscarUsuario.FlatStyle = FlatStyle.Flat;
+            btnBuscarUsuario.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuscarUsuario.ForeColor = Color.White;
+            btnBuscarUsuario.Location = new Point(0, 0);
+            btnBuscarUsuario.Name = "btnBuscarUsuario";
+            btnBuscarUsuario.Size = new Size(255, 41);
+            btnBuscarUsuario.TabIndex = 5;
+            btnBuscarUsuario.Text = "Buscar Usuario";
+            btnBuscarUsuario.UseVisualStyleBackColor = true;
+            // 
+            // panel8
+            // 
+            panel8.Controls.Add(btnIngresarUsuario);
+            panel8.Dock = DockStyle.Top;
+            panel8.Location = new Point(0, 247);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(255, 46);
+            panel8.TabIndex = 4;
+            // 
+            // btnIngresarUsuario
+            // 
+            btnIngresarUsuario.Dock = DockStyle.Fill;
+            btnIngresarUsuario.FlatAppearance.BorderSize = 0;
+            btnIngresarUsuario.FlatStyle = FlatStyle.Flat;
+            btnIngresarUsuario.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnIngresarUsuario.ForeColor = Color.White;
+            btnIngresarUsuario.Location = new Point(0, 0);
+            btnIngresarUsuario.Name = "btnIngresarUsuario";
+            btnIngresarUsuario.Size = new Size(255, 46);
+            btnIngresarUsuario.TabIndex = 0;
+            btnIngresarUsuario.Text = "Ingresar Usuario";
+            btnIngresarUsuario.UseVisualStyleBackColor = true;
+            // 
+            // panel7
+            // 
+            panel7.Controls.Add(btnCambiarContra);
+            panel7.Dock = DockStyle.Top;
+            panel7.Location = new Point(0, 201);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(255, 46);
+            panel7.TabIndex = 3;
+            // 
+            // btnCambiarContra
+            // 
+            btnCambiarContra.Dock = DockStyle.Fill;
+            btnCambiarContra.FlatAppearance.BorderSize = 0;
+            btnCambiarContra.FlatStyle = FlatStyle.Flat;
+            btnCambiarContra.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCambiarContra.ForeColor = Color.White;
+            btnCambiarContra.Location = new Point(0, 0);
+            btnCambiarContra.Name = "btnCambiarContra";
+            btnCambiarContra.Size = new Size(255, 46);
+            btnCambiarContra.TabIndex = 0;
+            btnCambiarContra.Text = "Cambiar Contraseña";
+            btnCambiarContra.UseVisualStyleBackColor = true;
+            // 
+            // panel6
+            // 
+            panel6.Controls.Add(btnActualizarDatos);
+            panel6.Dock = DockStyle.Top;
+            panel6.Location = new Point(0, 155);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(255, 46);
+            panel6.TabIndex = 2;
+            // 
+            // btnActualizarDatos
+            // 
+            btnActualizarDatos.Dock = DockStyle.Fill;
+            btnActualizarDatos.FlatAppearance.BorderSize = 0;
+            btnActualizarDatos.FlatStyle = FlatStyle.Flat;
+            btnActualizarDatos.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnActualizarDatos.ForeColor = Color.White;
+            btnActualizarDatos.Location = new Point(0, 0);
+            btnActualizarDatos.Name = "btnActualizarDatos";
+            btnActualizarDatos.Size = new Size(255, 46);
+            btnActualizarDatos.TabIndex = 0;
+            btnActualizarDatos.Text = "Actualizar Perfil";
+            btnActualizarDatos.UseVisualStyleBackColor = true;
+            // 
             // panel5
             // 
-            panel5.Controls.Add(panel6);
-            panel5.Controls.Add(panel7);
+            panel5.Controls.Add(btnLogout);
             panel5.Dock = DockStyle.Bottom;
             panel5.Location = new Point(0, 387);
             panel5.Name = "panel5";
             panel5.Size = new Size(255, 63);
             panel5.TabIndex = 1;
-            // 
-            // panel6
-            // 
-            panel6.Dock = DockStyle.Fill;
-            panel6.Location = new Point(0, 0);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(103, 63);
-            panel6.TabIndex = 0;
-            // 
-            // panel7
-            // 
-            panel7.Controls.Add(btnLogout);
-            panel7.Dock = DockStyle.Right;
-            panel7.Location = new Point(103, 0);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(152, 63);
-            panel7.TabIndex = 1;
             // 
             // btnLogout
             // 
@@ -99,10 +215,9 @@
             btnLogout.ForeColor = Color.White;
             btnLogout.Location = new Point(0, 0);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(152, 63);
+            btnLogout.Size = new Size(255, 63);
             btnLogout.TabIndex = 0;
             btnLogout.Text = "Cerrar Sesion";
-            btnLogout.TextAlign = ContentAlignment.MiddleLeft;
             btnLogout.UseVisualStyleBackColor = true;
             btnLogout.Click += btnLogout_Click;
             // 
@@ -199,6 +314,11 @@
             lTelefono.TabIndex = 4;
             lTelefono.Text = "Telefono";
             // 
+            // saveFileDialog1
+            // 
+            saveFileDialog1.Filter = "Archivos de Texto (*.txt)|*.txt";
+            saveFileDialog1.Title = "Guardar Como";
+            // 
             // MenuAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -208,8 +328,12 @@
             Name = "MenuAdmin";
             Text = "MenuAdmin";
             panel1.ResumeLayout(false);
-            panel5.ResumeLayout(false);
+            panel11.ResumeLayout(false);
+            panel10.ResumeLayout(false);
+            panel8.ResumeLayout(false);
             panel7.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            panel5.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel9.ResumeLayout(false);
@@ -223,8 +347,6 @@
 
         private Panel panel1;
         private Panel panel5;
-        private Panel panel6;
-        private Panel panel7;
         private Button btnLogout;
         private Panel panel2;
         private Panel panel3;
@@ -235,5 +357,16 @@
         private Label lUsuario;
         private Label lNombre;
         private Label lTelefono;
+        private Panel panel6;
+        private Button btnActualizarDatos;
+        private Panel panel7;
+        private Button btnCambiarContra;
+        private Panel panel8;
+        private Button btnIngresarUsuario;
+        private Panel panel10;
+        private Button btnBuscarUsuario;
+        private Panel panel11;
+        private Button btnBackup;
+        private SaveFileDialog saveFileDialog1;
     }
 }

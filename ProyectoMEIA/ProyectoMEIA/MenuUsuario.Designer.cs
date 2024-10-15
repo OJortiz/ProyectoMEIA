@@ -33,6 +33,7 @@
             lUsuario = new Label();
             lTelefono = new Label();
             panel1 = new Panel();
+            btn_darseBaja = new Button();
             panel7 = new Panel();
             btn_CambioPassU = new Button();
             panel6 = new Panel();
@@ -45,7 +46,7 @@
             pictureBox1 = new PictureBox();
             panel4 = new Panel();
             panelOpciones = new Panel();
-            btn_darseBaja = new Button();
+            panel8 = new Panel();
             panel1.SuspendLayout();
             panel7.SuspendLayout();
             panel6.SuspendLayout();
@@ -55,6 +56,7 @@
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
+            panel8.SuspendLayout();
             SuspendLayout();
             // 
             // lnombre
@@ -100,7 +102,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Navy;
-            panel1.Controls.Add(btn_darseBaja);
+            panel1.Controls.Add(panel8);
             panel1.Controls.Add(panel7);
             panel1.Controls.Add(panel6);
             panel1.Controls.Add(panel5);
@@ -110,6 +112,21 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(255, 450);
             panel1.TabIndex = 5;
+            // 
+            // btn_darseBaja
+            // 
+            btn_darseBaja.Dock = DockStyle.Fill;
+            btn_darseBaja.FlatAppearance.BorderSize = 0;
+            btn_darseBaja.FlatStyle = FlatStyle.Flat;
+            btn_darseBaja.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_darseBaja.ForeColor = Color.White;
+            btn_darseBaja.Location = new Point(0, 0);
+            btn_darseBaja.Name = "btn_darseBaja";
+            btn_darseBaja.Size = new Size(255, 46);
+            btn_darseBaja.TabIndex = 4;
+            btn_darseBaja.Text = "Deshabilitar Cuenta";
+            btn_darseBaja.UseVisualStyleBackColor = true;
+            btn_darseBaja.Click += btn_darseBaja_Click;
             // 
             // panel7
             // 
@@ -244,15 +261,14 @@
             panelOpciones.Size = new Size(545, 450);
             panelOpciones.TabIndex = 6;
             // 
-            // btn_darseBaja
+            // panel8
             // 
-            btn_darseBaja.Location = new Point(66, 296);
-            btn_darseBaja.Name = "btn_darseBaja";
-            btn_darseBaja.Size = new Size(122, 59);
-            btn_darseBaja.TabIndex = 4;
-            btn_darseBaja.Text = "Deshabilitar Cuenta";
-            btn_darseBaja.UseVisualStyleBackColor = true;
-            btn_darseBaja.Click += btn_darseBaja_Click;
+            panel8.Controls.Add(btn_darseBaja);
+            panel8.Dock = DockStyle.Top;
+            panel8.Location = new Point(0, 236);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(255, 46);
+            panel8.TabIndex = 4;
             // 
             // MenuUsuario
             // 
@@ -275,6 +291,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            panel8.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -298,5 +315,6 @@
         private Panel panel7;
         private Button btn_CambioPassU;
         private Button btn_darseBaja;
+        private Panel panel8;
     }
 }
