@@ -124,7 +124,7 @@ namespace ProyectoMEIA
 
         private void btn_createacc_Click(object sender, EventArgs e)
         {
-            NuevoUsuario nuevo = new NuevoUsuario();
+            NuevoUsuario nuevo = new NuevoUsuario(null, false); // Llamado desde el login
             nuevo.Show();
             this.Hide();
         }

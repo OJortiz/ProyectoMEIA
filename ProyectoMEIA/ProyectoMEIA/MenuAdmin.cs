@@ -153,8 +153,32 @@ namespace ProyectoMEIA
 
         private void btnBuscarUsuario_Click(object sender, EventArgs e)
         {
-            BuscarUsuario buscar = new BuscarUsuario();
+            BuscarUsuario buscar = new BuscarUsuario(lUsuario.Text);
             MostrarFormPanel(buscar);
+        }
+
+        private void btnCambiarContra_Click(object sender, EventArgs e)
+        {
+            string nombreU = lUsuario.Text;
+            ActualizacionContraseña actualizar_contra = new ActualizacionContraseña(nombreU);
+            MostrarFormPanel(actualizar_contra);
+        }
+
+        private void btnActualizarDatos_Click(object sender, EventArgs e)
+        {
+            string nombreU = lUsuario.Text;
+            ActualizacionUsuario actualizar_datos = new ActualizacionUsuario(nombreU, this);
+            MostrarFormPanel(actualizar_datos);
+        }
+        public void ActualizarTelefonoEtiqueta(string nuevoTelefono)
+        {
+            lTelefono.Text = nuevoTelefono;
+        }
+
+        private void btnIngresarUsuario_Click(object sender, EventArgs e)
+        {
+            NuevoUsuario nuevo = new NuevoUsuario(null, true); // true indica que es desde MenuAdmin
+            nuevo.Show();
         }
     }
 }

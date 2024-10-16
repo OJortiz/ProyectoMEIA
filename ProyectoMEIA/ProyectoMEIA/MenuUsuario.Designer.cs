@@ -33,6 +33,7 @@
             lUsuario = new Label();
             lTelefono = new Label();
             panel1 = new Panel();
+            panel8 = new Panel();
             btn_darseBaja = new Button();
             panel7 = new Panel();
             btn_CambioPassU = new Button();
@@ -46,8 +47,8 @@
             pictureBox1 = new PictureBox();
             panel4 = new Panel();
             panelOpciones = new Panel();
-            panel8 = new Panel();
             panel1.SuspendLayout();
+            panel8.SuspendLayout();
             panel7.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
@@ -56,7 +57,6 @@
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
-            panel8.SuspendLayout();
             SuspendLayout();
             // 
             // lnombre
@@ -112,6 +112,15 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(255, 450);
             panel1.TabIndex = 5;
+            // 
+            // panel8
+            // 
+            panel8.Controls.Add(btn_darseBaja);
+            panel8.Dock = DockStyle.Top;
+            panel8.Location = new Point(0, 236);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(255, 46);
+            panel8.TabIndex = 4;
             // 
             // btn_darseBaja
             // 
@@ -191,7 +200,7 @@
             btnLogout.FlatAppearance.BorderSize = 0;
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLogout.ForeColor = Color.White;
+            btnLogout.ForeColor = Color.Red;
             btnLogout.Location = new Point(0, 0);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(255, 63);
@@ -261,15 +270,6 @@
             panelOpciones.Size = new Size(545, 450);
             panelOpciones.TabIndex = 6;
             // 
-            // panel8
-            // 
-            panel8.Controls.Add(btn_darseBaja);
-            panel8.Dock = DockStyle.Top;
-            panel8.Location = new Point(0, 236);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(255, 46);
-            panel8.TabIndex = 4;
-            // 
             // MenuUsuario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -282,6 +282,7 @@
             Name = "MenuUsuario";
             Text = "MenuUsuario";
             panel1.ResumeLayout(false);
+            panel8.ResumeLayout(false);
             panel7.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel5.ResumeLayout(false);
@@ -291,7 +292,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            panel8.ResumeLayout(false);
             ResumeLayout(false);
         }
 

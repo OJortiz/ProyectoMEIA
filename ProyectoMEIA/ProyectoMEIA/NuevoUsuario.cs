@@ -13,11 +13,17 @@ namespace ProyectoMEIA
 {
     public partial class NuevoUsuario : Form
     {
+        private bool fueLlamadoDesdeAdmin;
         public string archivo_usuario = "C:\\MEIA\\user.txt";
-        public NuevoUsuario(string nombreUser = null)
+        public NuevoUsuario(string nombreUser = null, bool esAdmin = false)
         {
             InitializeComponent();
             txtUsuario.Text = nombreUser;
+            fueLlamadoDesdeAdmin = esAdmin;
+            if (fueLlamadoDesdeAdmin)
+            {
+                btn_Login.Text = "Admin";
+            }
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
@@ -191,9 +197,49 @@ namespace ProyectoMEIA
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Form_Main loginForm = new Form_Main();
-            loginForm.Show();
+            if (fueLlamadoDesdeAdmin)
+            {
+                var datosAdmin = ObtenerDatosAdmin();
+                if (datosAdmin.usuario != null)
+                {
+                    MenuAdmin adminForm = new MenuAdmin(datosAdmin.usuario, datosAdmin.nombre, datosAdmin.apellido, datosAdmin.telefono);
+
+                    this.Close();
+                                 
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron los datos del administrador.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                Form_Main loginForm = new Form_Main();
+                loginForm.Show();
+
+                this.Close();
+            }
         }
+
+        private (string usuario, string nombre, string apellido, int telefono) ObtenerDatosAdmin()
+        {
+            string[] lineas = File.ReadAllLines(archivo_usuario);
+
+            foreach (string linea in lineas)
+            {
+                string[] campos = linea.Split(';');
+                if (campos.Length == 8 && campos[4] == "1")
+                {
+                    string usuario = campos[0];
+                    string nombre = campos[1];
+                    string apellido = campos[2];
+                    int telefono = int.Parse(campos[6]);
+                    return (usuario, nombre, apellido, telefono);
+                }
+            }
+
+            return (null, null, null, 0);
+        }
+
     }
 }

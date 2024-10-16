@@ -30,14 +30,14 @@
         {
             label1 = new Label();
             txtUsuario = new TextBox();
-            button1 = new Button();
-            button3 = new Button();
+            btn_buscar = new Button();
+            btn_deshabilitar = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(77, 60);
+            label1.Location = new Point(119, 67);
             label1.Name = "label1";
             label1.Size = new Size(62, 20);
             label1.TabIndex = 0;
@@ -45,40 +45,41 @@
             // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(246, 57);
+            txtUsuario.Location = new Point(288, 64);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(125, 27);
             txtUsuario.TabIndex = 5;
             // 
-            // button1
+            // btn_buscar
             // 
-            button1.Location = new Point(33, 125);
-            button1.Name = "button1";
-            button1.Size = new Size(151, 45);
-            button1.TabIndex = 10;
-            button1.Text = "Buscar Usuario";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btn_buscar.Location = new Point(75, 132);
+            btn_buscar.Name = "btn_buscar";
+            btn_buscar.Size = new Size(151, 45);
+            btn_buscar.TabIndex = 10;
+            btn_buscar.Text = "Buscar Usuario";
+            btn_buscar.UseVisualStyleBackColor = true;
+            btn_buscar.Click += button1_Click;
             // 
-            // button3
+            // btn_deshabilitar
             // 
-            button3.Location = new Point(246, 125);
-            button3.Name = "button3";
-            button3.Size = new Size(173, 46);
-            button3.TabIndex = 12;
-            button3.Text = "Deshabilitar Cuenta";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            btn_deshabilitar.Location = new Point(288, 132);
+            btn_deshabilitar.Name = "btn_deshabilitar";
+            btn_deshabilitar.Size = new Size(173, 46);
+            btn_deshabilitar.TabIndex = 12;
+            btn_deshabilitar.Text = "Deshabilitar Cuenta";
+            btn_deshabilitar.UseVisualStyleBackColor = true;
+            btn_deshabilitar.Click += button3_Click;
             // 
             // BuscarUsuario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(553, 255);
-            Controls.Add(button3);
-            Controls.Add(button1);
+            Controls.Add(btn_deshabilitar);
+            Controls.Add(btn_buscar);
             Controls.Add(txtUsuario);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "BuscarUsuario";
             Text = "BuscarUsuario";
             ResumeLayout(false);
@@ -89,7 +90,7 @@
 
         private Label label1;
         private TextBox txtUsuario;
-        private Button button1;
-        private Button button3;
+        private Button btn_buscar;
+        private Button btn_deshabilitar;
     }
 }

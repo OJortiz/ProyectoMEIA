@@ -14,9 +14,9 @@ namespace ProyectoMEIA
     public partial class ActualizacionUsuario : Form
     {
         string username;
-        MenuUsuario formMenu; // Referencia al formulario principal
+        Form formMenu; // Referencia al formulario principal
 
-        public ActualizacionUsuario(string usuario, MenuUsuario form)
+        public ActualizacionUsuario(string usuario, Form form)
         {
             InitializeComponent();
 
@@ -83,7 +83,14 @@ namespace ProyectoMEIA
                 // Actualizar la etiqueta en el formulario principal si se cambió el teléfono
                 if (!string.IsNullOrEmpty(nuevoTelefono))
                 {
-                    formMenu.ActualizarTelefonoEtiqueta(nuevoTelefono); // Llamada al método en el formulario principal
+                    if (formMenu is MenuUsuario menuUsuario)
+                    {
+                        menuUsuario.ActualizarTelefonoEtiqueta(nuevoTelefono); // Llamada al método en MenuUsuario
+                    }
+                    else if (formMenu is MenuAdmin menuAdmin)
+                    {
+                        menuAdmin.ActualizarTelefonoEtiqueta(nuevoTelefono); // Llamada al método en MenuAdmin
+                    }
                 }
 
                 MessageBox.Show("Datos actualizados con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);

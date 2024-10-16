@@ -152,6 +152,7 @@
             btnIngresarUsuario.TabIndex = 0;
             btnIngresarUsuario.Text = "Ingresar Usuario";
             btnIngresarUsuario.UseVisualStyleBackColor = true;
+            btnIngresarUsuario.Click += btnIngresarUsuario_Click;
             // 
             // panel7
             // 
@@ -175,6 +176,7 @@
             btnCambiarContra.TabIndex = 0;
             btnCambiarContra.Text = "Cambiar Contraseña";
             btnCambiarContra.UseVisualStyleBackColor = true;
+            btnCambiarContra.Click += btnCambiarContra_Click;
             // 
             // panel6
             // 
@@ -198,6 +200,7 @@
             btnActualizarDatos.TabIndex = 0;
             btnActualizarDatos.Text = "Actualizar Perfil";
             btnActualizarDatos.UseVisualStyleBackColor = true;
+            btnActualizarDatos.Click += btnActualizarDatos_Click;
             // 
             // panel5
             // 
@@ -214,7 +217,7 @@
             btnLogout.FlatAppearance.BorderSize = 0;
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLogout.ForeColor = Color.White;
+            btnLogout.ForeColor = Color.Red;
             btnLogout.Location = new Point(0, 0);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(255, 63);
@@ -336,6 +339,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(panelOpciones);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "MenuAdmin";
             Text = "MenuAdmin";
             panel1.ResumeLayout(false);

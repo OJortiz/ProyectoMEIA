@@ -7,28 +7,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ProyectoMEIA
 {
     public partial class BuscarUsuario : Form
     {
         public string ruta_user = "C:\\MEIA\\user.txt";
-        private bool existeUsuario = false;
-        public BuscarUsuario()
+        string username;
+
+        public BuscarUsuario(string usuario)
         {
             InitializeComponent();
+            username = usuario;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
+                bool existeUsuario = false;
+
                 if (!File.Exists(ruta_user))
                 {
                     MessageBox.Show("El archivo de usuarios no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
                 string[] lineas = File.ReadAllLines(ruta_user);
+
+                if (lineas.Length == 0)
+                {
+                    MessageBox.Show("El archivo de usuarios está vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 foreach (string linea in lineas)
                 {
                     string[] campos = linea.Split(';');
@@ -40,22 +53,23 @@ namespace ProyectoMEIA
                         if (usuario == txtUsuario.Text)
                         {
                             existeUsuario = true;
-                            break;
+                            break; 
                         }
                     }
                 }
+
                 if (existeUsuario)
                 {
-                    MessageBox.Show($"El usuario {txtUsuario.Text} si existe");
+                    MessageBox.Show($"El usuario {txtUsuario.Text} sí existe", "Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show($"No se encontro el usuario {txtUsuario.Text}");
+                    MessageBox.Show($"No se encontró el usuario {txtUsuario.Text}", "No Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hubo un problema al leer el archivo" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Hubo un problema al leer el archivo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -63,46 +77,59 @@ namespace ProyectoMEIA
         {
             try
             {
-                if (!existeUsuario)
-                {
-                    MessageBox.Show("Se debe buscar un usuario primero");
-                    return;
-                }
-
+                string ruta_user = @"C:\MEIA\user.txt";
                 if (!File.Exists(ruta_user))
                 {
-                    MessageBox.Show("No se encontro el archivo de usuarios");
+                    MessageBox.Show("El archivo de usuarios no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                var confirmar = MessageBox.Show($"¿Está seguro de que desea dar de baja al usuario?",
-                    "Confirmacion",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-                if (confirmar == DialogResult.Yes)
+                string[] lineas = File.ReadAllLines(ruta_user);
+                bool usuarioEncontrado = false;
+
+                for (int i = 0; i < lineas.Length; i++)
                 {
-                    string[] lineas = File.ReadAllLines(ruta_user);
-                    for (int i = 0; i < lineas.Length; i++)
+                    string[] campos = lineas[i].Split(';');
+
+                    if (campos.Length == 8)
                     {
-                        string[] campos = lineas[i].Split(';');
-                        if (campos[0] == txtUsuario.Text)
+                        string usuario = campos[0];
+                        int estatus = int.Parse(campos[7]);
+
+                        if (usuario == txtUsuario.Text)
                         {
+                            usuarioEncontrado = true;
+
+                            if (usuario == username)
+                            {
+                                MessageBox.Show("No es posible desactivar una cuenta de administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                            if (estatus == 0)
+                            {
+                                MessageBox.Show("Este usuario ya está deshabilitado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                return;
+                            }
+
                             campos[7] = "0";
-                            lineas[i] = string.Join(';', campos);
-                            break;
+                            lineas[i] = string.Join(";", campos);
+
+                            File.WriteAllLines(ruta_user, lineas);
+                            MessageBox.Show("Usuario deshabilitado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
                         }
                     }
-                    File.WriteAllLines(ruta_user, lineas);
-                    MessageBox.Show("Usuario dado de baja exitosamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
+
+                if (!usuarioEncontrado)
                 {
-                    MessageBox.Show("No se realizo ninguna accion..");
+                    MessageBox.Show("No se encontró el usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error en la actualizacion: " + ex.Message);
+                MessageBox.Show("Hubo un problema al procesar el archivo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
