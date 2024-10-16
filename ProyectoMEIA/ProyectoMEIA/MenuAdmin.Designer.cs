@@ -339,7 +339,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(panelOpciones);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "MenuAdmin";
             Text = "MenuAdmin";
             panel1.ResumeLayout(false);

@@ -88,6 +88,7 @@ namespace ProyectoMEIA
             {
                 // Actualizar el estatus del usuario a 0 (inactivo)
                 string rutaArchivoUsuarios = @"C:\MEIA\user.txt";
+                string rutaDescriptorUsuarios = "C:\\MEIA\\desc_user.txt";
                 if (File.Exists(rutaArchivoUsuarios))
                 {
                     string[] lineas = File.ReadAllLines(rutaArchivoUsuarios);
@@ -102,13 +103,39 @@ namespace ProyectoMEIA
                         }
                     }
                     File.WriteAllLines(rutaArchivoUsuarios, lineas);
-                    MessageBox.Show("Te has dado de baja con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     MessageBox.Show("No se encontró el archivo de usuarios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
+                //Actualizar el archivo descriptor
+                if (File.Exists(rutaDescriptorUsuarios))
+                {
+                    string[] lineasDesc = File.ReadAllLines(rutaDescriptorUsuarios);
+                    DateTime fecha = DateTime.Now;
+                    string fechaFormateada = fecha.ToString("dd/MM/yyyy HH:mm:ss");
+
+                    for(int i = 0; i < lineasDesc.Length; i++)
+                    {
+                        string[] campos = lineasDesc[i].Split(';');
+                        if(campos[0] == lUsuario.Text)
+                        { 
+                            campos[3] = fechaFormateada;
+                            campos[4] = lUsuario.Text;
+                        }
+                        campos[6] = (int.Parse(campos[6]) - 1).ToString();
+                        campos[7] = (int.Parse(campos[7]) + 1).ToString();
+                        lineasDesc[i] = string.Join(";", campos);
+                    }
+                    File.WriteAllLines(rutaDescriptorUsuarios, lineasDesc);
+                }
+                else
+                {
+                    MessageBox.Show("No se encontro el archivo descriptor de usuarios"); 
+                }
+
+                MessageBox.Show("Te has dado de baja con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Regresar a la pantalla de inicio
                 this.Close();
                 Form_Main loginForm = new Form_Main();

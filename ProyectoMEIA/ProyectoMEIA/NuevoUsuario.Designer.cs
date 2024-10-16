@@ -235,7 +235,7 @@
             Controls.Add(label1);
             Font = new Font("Arial", 12F);
             ForeColor = Color.White;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
             Name = "NuevoUsuario";
             Text = "NuevoUsuario";

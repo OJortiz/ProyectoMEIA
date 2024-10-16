@@ -15,6 +15,7 @@ namespace ProyectoMEIA
     {
         private bool fueLlamadoDesdeAdmin;
         public string archivo_usuario = "C:\\MEIA\\user.txt";
+        public string archivo_descriptor = "C:\\MEIA\\desc_user.txt";
         public NuevoUsuario(string nombreUser = null, bool esAdmin = false)
         {
             InitializeComponent();
@@ -25,7 +26,49 @@ namespace ProyectoMEIA
                 btn_Login.Text = "Admin";
             }
         }
+        public static void CrearDescriptorUsuario(string archivo_usuario, string archivo_descriptor, string nombreUsuario, string user)
+        {
+            int registrosActivos = 0, registrosInactivos = 0, totalRegistros = 0;
 
+            if (File.Exists(archivo_usuario))
+            {
+                string[] lineas = File.ReadAllLines(archivo_usuario);
+                foreach(var linea in lineas)
+                {
+                    string[] campos = linea.Split(';');
+                    if (campos.Length == 8)
+                    {
+                        int estado = int.Parse(campos[7]);
+                        if (estado == 1)
+                        {
+                            registrosActivos++;
+                        }
+                        else if (estado == 0)
+                        {
+                            registrosInactivos++;
+                        }
+                        totalRegistros++;
+                    }
+                }
+            }
+
+            DateTime fecha = DateTime.Now;
+            string fechaFormateada = fecha.ToString("dd/MM/yyyy HH:mm:ss");
+
+            try
+            {
+                using (StreamWriter sw = File.AppendText(archivo_descriptor))
+                {
+                    string nuevaLinea = $"{nombreUsuario};{fechaFormateada};{user};{fechaFormateada};{user};{totalRegistros};{registrosActivos};{registrosInactivos};{0}";
+                    sw.WriteLine(nuevaLinea);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Ocurrio un error: " + ex.Message);
+            }
+        }
+ 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             string usuario = txtUsuario.Text.Trim();
@@ -144,6 +187,7 @@ namespace ProyectoMEIA
 
             MessageBox.Show("Usuario registrado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            CrearDescriptorUsuario(archivo_usuario, archivo_descriptor, nombre + apellido, usuario);
             // Limpiar campos después de registrar
             txtUsuario.Clear();
             txtNombre.Clear();
