@@ -62,13 +62,13 @@ namespace ProyectoMEIA
                 string directorioMEIA = @"C:\MEIA";
                 string backupDescriptor = "C:\\MEIA\\desc_bitacora_backup.txt";
                 string usuarioDescriptor = "C:\\MEIA\\desc_user.txt";
+
                 if (Directory.Exists(directorioMEIA))
                 {
                     // Abrir el diálogo para seleccionar la ubicación del respaldo
                     FolderBrowserDialog folderDialog = new FolderBrowserDialog();
                     if (folderDialog.ShowDialog() == DialogResult.OK)
                     {
-                        // Obtener la ruta seleccionada por el usuario
                         string rutaDestino = Path.Combine(folderDialog.SelectedPath, "MEIA_Backup");
 
                         if (!Directory.Exists(rutaDestino))
@@ -76,7 +76,6 @@ namespace ProyectoMEIA
                             Directory.CreateDirectory(rutaDestino);
                         }
 
-                        // Copiar todos los archivos y subdirectorios de MEIA al nuevo directorio de respaldo
                         foreach (string archivo in Directory.GetFiles(directorioMEIA))
                         {
                             string nombreArchivo = Path.GetFileName(archivo);
@@ -91,13 +90,11 @@ namespace ProyectoMEIA
                             DirectoryCopy(directorio, destinoDirectorio);
                         }
 
-                        // Registrar la operación en la bitácora
-                        string fechaOperacion = DateTime.Now.ToString("dd/MM/yyyy");
+                        string fechaOperacion = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                         string rutaCompleta = Path.GetFullPath(rutaDestino);
                         string usuarioBackup = lUsuario.Text;
 
                         string entradaBitacora = $"{rutaCompleta};{usuarioBackup};{fechaOperacion}\n";
-
                         if (File.Exists(archivo_bitacora))
                         {
                             File.AppendAllText(archivo_bitacora, entradaBitacora);
@@ -107,29 +104,24 @@ namespace ProyectoMEIA
                             File.WriteAllText(archivo_bitacora, entradaBitacora);
                         }
 
-                        //Definicion de datos para Archivo Descriptor
-
-                        string[] lineasDescUsuario = File.ReadAllLines(usuarioDescriptor);
-                        int totalRegistros = 0;
-
-                        foreach (string linea in lineasDescUsuario)
+                        // Actualizar o crear archivo descriptor de backup
+                        if (File.Exists(backupDescriptor))
                         {
-                            string[] campos = linea.Split(';');
-                            if (campos.Length == 8)
-                            {
-                                string nombre = campos[0];
-                                string fechaCreacion = campos[1];
-                                string usuarioCreacion = campos[2];
+                            // Leer las líneas del archivo descriptor
+                            string[] lineas = File.ReadAllLines(backupDescriptor);
+                            int totalRegistros = lineas.Length;
 
-                                DateTime fechaActual = DateTime.Now;
-                                string fechaModificacion = fechaActual.ToString("dd/MM/yyyy HH:mm:ss");
-                                string usuarioModificacion = lUsuario.Text;
-                                totalRegistros++;
+                            // Crear la nueva entrada con los datos modificados
+                            string nuevaEntradaDescriptor = $"bitacora_backup;{DateTime.Now:dd/MM/yyyy};{lUsuario.Text};{DateTime.Now:dd/MM/yyyy HH:mm:ss};{lUsuario.Text};{totalRegistros + 1};";
 
-                                string entrada = $"{nombre};{fechaCreacion};{usuarioCreacion};{fechaModificacion};{usuarioModificacion};{totalRegistros}";
-                                MessageBox.Show(entrada);
-                                File.AppendAllText(backupDescriptor, entrada);
-                            }
+                            // Sobreescribir el archivo descriptor con la nueva entrada
+                            File.AppendAllText(backupDescriptor, nuevaEntradaDescriptor + Environment.NewLine);
+                        }
+                        else
+                        {
+                            // Crear el archivo descriptor si no existe con la entrada inicial
+                            string nuevaEntradaDescriptor = $"bitacora_backup;{DateTime.Now:dd/MM/yyyy};{lUsuario.Text};{DateTime.Now:dd/MM/yyyy HH:mm:ss};{lUsuario.Text};1;";
+                            File.WriteAllText(backupDescriptor, nuevaEntradaDescriptor + Environment.NewLine);
                         }
 
                         MessageBox.Show("Copia de seguridad realizada exitosamente.");
@@ -204,7 +196,7 @@ namespace ProyectoMEIA
         private void btnIngresarUsuario_Click(object sender, EventArgs e)
         {
             NuevoUsuario nuevo = new NuevoUsuario(null, true); // true indica que es desde MenuAdmin
-            MostrarFormPanel(nuevo);
+            nuevo.Show();
         }
     }
 }
