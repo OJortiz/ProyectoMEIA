@@ -53,7 +53,7 @@ namespace ProyectoMEIA
                         if (usuario == txtUsuario.Text)
                         {
                             existeUsuario = true;
-                            break; 
+                            break;
                         }
                     }
                 }
@@ -131,6 +131,11 @@ namespace ProyectoMEIA
             {
                 MessageBox.Show("Hubo un problema al procesar el archivo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

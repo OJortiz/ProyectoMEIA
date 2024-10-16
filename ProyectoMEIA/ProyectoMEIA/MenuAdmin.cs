@@ -60,7 +60,8 @@ namespace ProyectoMEIA
             try
             {
                 string directorioMEIA = @"C:\MEIA";
-
+                string backupDescriptor = "C:\\MEIA\\desc_bitacora_backup.txt";
+                string usuarioDescriptor = "C:\\MEIA\\desc_user.txt";
                 if (Directory.Exists(directorioMEIA))
                 {
                     // Abrir el diálogo para seleccionar la ubicación del respaldo
@@ -104,6 +105,31 @@ namespace ProyectoMEIA
                         else
                         {
                             File.WriteAllText(archivo_bitacora, entradaBitacora);
+                        }
+
+                        //Definicion de datos para Archivo Descriptor
+
+                        string[] lineasDescUsuario = File.ReadAllLines(usuarioDescriptor);
+                        int totalRegistros = 0;
+
+                        foreach (string linea in lineasDescUsuario)
+                        {
+                            string[] campos = linea.Split(';');
+                            if (campos.Length == 8)
+                            {
+                                string nombre = campos[0];
+                                string fechaCreacion = campos[1];
+                                string usuarioCreacion = campos[2];
+
+                                DateTime fechaActual = DateTime.Now;
+                                string fechaModificacion = fechaActual.ToString("dd/MM/yyyy HH:mm:ss");
+                                string usuarioModificacion = lUsuario.Text;
+                                totalRegistros++;
+
+                                string entrada = $"{nombre};{fechaCreacion};{usuarioCreacion};{fechaModificacion};{usuarioModificacion};{totalRegistros}";
+                                MessageBox.Show(entrada);
+                                File.AppendAllText(backupDescriptor, entrada);
+                            }
                         }
 
                         MessageBox.Show("Copia de seguridad realizada exitosamente.");
@@ -178,7 +204,7 @@ namespace ProyectoMEIA
         private void btnIngresarUsuario_Click(object sender, EventArgs e)
         {
             NuevoUsuario nuevo = new NuevoUsuario(null, true); // true indica que es desde MenuAdmin
-            nuevo.Show();
+            MostrarFormPanel(nuevo);
         }
     }
 }
