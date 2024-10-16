@@ -76,6 +76,7 @@ namespace ProyectoMEIA
                             Directory.CreateDirectory(rutaDestino);
                         }
 
+                        // Copiar todos los archivos y directorios
                         foreach (string archivo in Directory.GetFiles(directorioMEIA))
                         {
                             string nombreArchivo = Path.GetFileName(archivo);
@@ -90,38 +91,47 @@ namespace ProyectoMEIA
                             DirectoryCopy(directorio, destinoDirectorio);
                         }
 
+                        // Registrar en la bitácora del backup (como apilo)
                         string fechaOperacion = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                         string rutaCompleta = Path.GetFullPath(rutaDestino);
                         string usuarioBackup = lUsuario.Text;
+                        string nuevaEntradaBitacora = $"{rutaCompleta};{usuarioBackup};{fechaOperacion}\n";
 
-                        string entradaBitacora = $"{rutaCompleta};{usuarioBackup};{fechaOperacion}\n";
                         if (File.Exists(archivo_bitacora))
                         {
-                            File.AppendAllText(archivo_bitacora, entradaBitacora);
+                            // Leer las entradas anteriores
+                            string contenidoAnterior = File.ReadAllText(archivo_bitacora);
+
+                            // Crear la nueva entrada en el principio (como apilo)
+                            string nuevoContenido = nuevaEntradaBitacora + contenidoAnterior;
+
+                            // Sobrescribir el archivo con la nueva entrada en el tope
+                            File.WriteAllText(archivo_bitacora, nuevoContenido);
                         }
                         else
                         {
-                            File.WriteAllText(archivo_bitacora, entradaBitacora);
+                            // Si el archivo no existe, simplemente crearlo con la nueva entrada
+                            File.WriteAllText(archivo_bitacora, nuevaEntradaBitacora);
                         }
 
-                        // Actualizar o crear archivo descriptor de backup
+                        // Actualizar o crear el archivo descriptor del backup
                         if (File.Exists(backupDescriptor))
                         {
-                            // Leer las líneas del archivo descriptor
+                            // Leer el archivo descriptor actual
                             string[] lineas = File.ReadAllLines(backupDescriptor);
                             int totalRegistros = lineas.Length;
 
                             // Crear la nueva entrada con los datos modificados
                             string nuevaEntradaDescriptor = $"bitacora_backup;{DateTime.Now:dd/MM/yyyy};{lUsuario.Text};{DateTime.Now:dd/MM/yyyy HH:mm:ss};{lUsuario.Text};{totalRegistros + 1};";
 
-                            // Sobreescribir el archivo descriptor con la nueva entrada
-                            File.AppendAllText(backupDescriptor, nuevaEntradaDescriptor + Environment.NewLine);
+                            // Sobrescribir el contenido del archivo descriptor
+                            File.WriteAllText(backupDescriptor, nuevaEntradaDescriptor);
                         }
                         else
                         {
                             // Crear el archivo descriptor si no existe con la entrada inicial
                             string nuevaEntradaDescriptor = $"bitacora_backup;{DateTime.Now:dd/MM/yyyy};{lUsuario.Text};{DateTime.Now:dd/MM/yyyy HH:mm:ss};{lUsuario.Text};1;";
-                            File.WriteAllText(backupDescriptor, nuevaEntradaDescriptor + Environment.NewLine);
+                            File.WriteAllText(backupDescriptor, nuevaEntradaDescriptor);
                         }
 
                         MessageBox.Show("Copia de seguridad realizada exitosamente.");

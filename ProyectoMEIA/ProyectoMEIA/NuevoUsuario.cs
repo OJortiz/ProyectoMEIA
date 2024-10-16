@@ -33,7 +33,7 @@ namespace ProyectoMEIA
             if (File.Exists(archivo_usuario))
             {
                 string[] lineas = File.ReadAllLines(archivo_usuario);
-                foreach(var linea in lineas)
+                foreach (var linea in lineas)
                 {
                     string[] campos = linea.Split(';');
                     if (campos.Length == 8)
@@ -57,18 +57,15 @@ namespace ProyectoMEIA
 
             try
             {
-                using (StreamWriter sw = File.AppendText(archivo_descriptor))
-                {
-                    string nuevaLinea = $"{nombreUsuario};{fechaFormateada};{user};{fechaFormateada};{user};{totalRegistros};{registrosActivos};{registrosInactivos};{0}";
-                    sw.WriteLine(nuevaLinea);
-                }
+                string nuevaLinea = $"{nombreUsuario};{fechaFormateada};{user};{fechaFormateada};{user};{totalRegistros};{registrosActivos};{registrosInactivos};{5}";
+                File.WriteAllText(archivo_descriptor, nuevaLinea + Environment.NewLine);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Ocurrio un error: " + ex.Message);
             }
         }
- 
+
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             string usuario = txtUsuario.Text.Trim();
