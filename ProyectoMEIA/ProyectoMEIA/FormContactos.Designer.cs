@@ -33,8 +33,8 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtUsuario = new TextBox();
+            txtNombre = new TextBox();
             btnAgregar = new Button();
             btnActualizar = new Button();
             btnEliminar = new Button();
@@ -91,19 +91,19 @@
             label2.TabIndex = 2;
             label2.Text = "Nombre: ";
             // 
-            // textBox1
+            // txtUsuario
             // 
-            textBox1.Location = new Point(265, 68);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 3;
+            txtUsuario.Location = new Point(265, 68);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(125, 27);
+            txtUsuario.TabIndex = 3;
             // 
-            // textBox2
+            // txtNombre
             // 
-            textBox2.Location = new Point(265, 142);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 4;
+            txtNombre.Location = new Point(265, 142);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(125, 27);
+            txtNombre.TabIndex = 4;
             // 
             // btnAgregar
             // 
@@ -140,14 +140,15 @@
             Controls.Add(btnEliminar);
             Controls.Add(btnActualizar);
             Controls.Add(btnAgregar);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtNombre);
+            Controls.Add(txtUsuario);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormContactos";
             Text = "FormContactos";
+            Load += FormContactos_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -162,8 +163,8 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtUsuario;
+        private TextBox txtNombre;
         private Button btnAgregar;
         private Button btnActualizar;
         private Button btnEliminar;

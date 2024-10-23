@@ -15,11 +15,16 @@ namespace ProyectoMEIA
     {
         public string ruta_user = "C:\\MEIA\\user.txt";
         string username;
-
-        public BuscarUsuario(string usuario)
+ 
+        public BuscarUsuario(string usuario, bool admin)
         {
             InitializeComponent();
             username = usuario;
+            if (admin == false)
+            {
+                btn_deshabilitar.Visible = false;
+                btn_buscar.Location = new Point(200 ,188);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -61,6 +66,7 @@ namespace ProyectoMEIA
                 if (existeUsuario)
                 {
                     MessageBox.Show($"El usuario {txtUsuario.Text} sí existe", "Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show()
                 }
                 else
                 {

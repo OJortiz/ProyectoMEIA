@@ -62,7 +62,7 @@
             btn_buscar.FlatAppearance.BorderSize = 2;
             btn_buscar.FlatStyle = FlatStyle.Flat;
             btn_buscar.Font = new Font("Arial", 10.2F, FontStyle.Bold);
-            btn_buscar.Location = new Point(93, 188);
+            btn_buscar.Location = new Point(99, 182);
             btn_buscar.Name = "btn_buscar";
             btn_buscar.Size = new Size(151, 45);
             btn_buscar.TabIndex = 10;
@@ -76,7 +76,7 @@
             btn_deshabilitar.FlatAppearance.BorderSize = 2;
             btn_deshabilitar.FlatStyle = FlatStyle.Flat;
             btn_deshabilitar.Font = new Font("Arial", 10.2F, FontStyle.Bold);
-            btn_deshabilitar.Location = new Point(306, 188);
+            btn_deshabilitar.Location = new Point(306, 181);
             btn_deshabilitar.Name = "btn_deshabilitar";
             btn_deshabilitar.Size = new Size(173, 46);
             btn_deshabilitar.TabIndex = 12;
@@ -120,7 +120,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Turquoise;
-            ClientSize = new Size(553, 276);
+            ClientSize = new Size(553, 273);
             Controls.Add(panel1);
             Controls.Add(label2);
             Controls.Add(btn_deshabilitar);

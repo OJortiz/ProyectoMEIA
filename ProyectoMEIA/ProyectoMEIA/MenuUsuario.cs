@@ -149,7 +149,7 @@ namespace ProyectoMEIA
 
         private void btnContactos_Click(object sender, EventArgs e)
         {
-            BuscarUsuario buscar = new BuscarUsuario(lUsuario.Text);
+            BuscarUsuario buscar = new BuscarUsuario(lUsuario.Text, false);
             MostrarFormPanel(buscar);
         }
     }

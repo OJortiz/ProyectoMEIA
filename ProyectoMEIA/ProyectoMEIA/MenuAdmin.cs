@@ -181,7 +181,7 @@ namespace ProyectoMEIA
 
         private void btnBuscarUsuario_Click(object sender, EventArgs e)
         {
-            BuscarUsuario buscar = new BuscarUsuario(lUsuario.Text);
+            BuscarUsuario buscar = new BuscarUsuario(lUsuario.Text, true);
             MostrarFormPanel(buscar);
         }
 
