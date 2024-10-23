@@ -79,7 +79,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(255, 450);
+            panel1.Size = new Size(255, 540);
             panel1.TabIndex = 6;
             // 
             // panel11
@@ -206,7 +206,7 @@
             // 
             panel5.Controls.Add(btnLogout);
             panel5.Dock = DockStyle.Bottom;
-            panel5.Location = new Point(0, 387);
+            panel5.Location = new Point(0, 477);
             panel5.Name = "panel5";
             panel5.Size = new Size(255, 63);
             panel5.TabIndex = 1;
@@ -329,14 +329,14 @@
             panelOpciones.Dock = DockStyle.Fill;
             panelOpciones.Location = new Point(255, 0);
             panelOpciones.Name = "panelOpciones";
-            panelOpciones.Size = new Size(545, 450);
+            panelOpciones.Size = new Size(545, 540);
             panelOpciones.TabIndex = 7;
             // 
             // MenuAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 540);
             Controls.Add(panelOpciones);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;

@@ -116,11 +116,11 @@ namespace ProyectoMEIA
                     DateTime fecha = DateTime.Now;
                     string fechaFormateada = fecha.ToString("dd/MM/yyyy HH:mm:ss");
 
-                    for(int i = 0; i < lineasDesc.Length; i++)
+                    for (int i = 0; i < lineasDesc.Length; i++)
                     {
                         string[] campos = lineasDesc[i].Split(';');
-                        if(campos[0] == lUsuario.Text)
-                        { 
+                        if (campos[0] == lUsuario.Text)
+                        {
                             campos[3] = fechaFormateada;
                             campos[4] = lUsuario.Text;
                         }
@@ -132,7 +132,7 @@ namespace ProyectoMEIA
                 }
                 else
                 {
-                    MessageBox.Show("No se encontro el archivo descriptor de usuarios"); 
+                    MessageBox.Show("No se encontro el archivo descriptor de usuarios");
                 }
 
                 MessageBox.Show("Te has dado de baja con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -145,6 +145,12 @@ namespace ProyectoMEIA
             {
                 MessageBox.Show("Continuarás con tu sesión actual.", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void btnContactos_Click(object sender, EventArgs e)
+        {
+            BuscarUsuario buscar = new BuscarUsuario(lUsuario.Text);
+            MostrarFormPanel(buscar);
         }
     }
 }

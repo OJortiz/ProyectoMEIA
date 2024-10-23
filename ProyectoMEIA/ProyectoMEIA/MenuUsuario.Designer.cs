@@ -33,6 +33,8 @@
             lUsuario = new Label();
             lTelefono = new Label();
             panel1 = new Panel();
+            panel10 = new Panel();
+            btnContactos = new Button();
             panel8 = new Panel();
             btn_darseBaja = new Button();
             panel7 = new Panel();
@@ -48,6 +50,7 @@
             panel4 = new Panel();
             panelOpciones = new Panel();
             panel1.SuspendLayout();
+            panel10.SuspendLayout();
             panel8.SuspendLayout();
             panel7.SuspendLayout();
             panel6.SuspendLayout();
@@ -102,6 +105,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Navy;
+            panel1.Controls.Add(panel10);
             panel1.Controls.Add(panel8);
             panel1.Controls.Add(panel7);
             panel1.Controls.Add(panel6);
@@ -112,6 +116,30 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(255, 450);
             panel1.TabIndex = 5;
+            // 
+            // panel10
+            // 
+            panel10.Controls.Add(btnContactos);
+            panel10.Dock = DockStyle.Top;
+            panel10.Location = new Point(0, 282);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(255, 44);
+            panel10.TabIndex = 5;
+            // 
+            // btnContactos
+            // 
+            btnContactos.Dock = DockStyle.Fill;
+            btnContactos.FlatAppearance.BorderSize = 0;
+            btnContactos.FlatStyle = FlatStyle.Flat;
+            btnContactos.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnContactos.ForeColor = Color.White;
+            btnContactos.Location = new Point(0, 0);
+            btnContactos.Name = "btnContactos";
+            btnContactos.Size = new Size(255, 44);
+            btnContactos.TabIndex = 0;
+            btnContactos.Text = "Contactos";
+            btnContactos.UseVisualStyleBackColor = true;
+            btnContactos.Click += btnContactos_Click;
             // 
             // panel8
             // 
@@ -282,6 +310,7 @@
             Name = "MenuUsuario";
             Text = "MenuUsuario";
             panel1.ResumeLayout(false);
+            panel10.ResumeLayout(false);
             panel8.ResumeLayout(false);
             panel7.ResumeLayout(false);
             panel6.ResumeLayout(false);
@@ -316,5 +345,7 @@
         private Button btn_CambioPassU;
         private Button btn_darseBaja;
         private Panel panel8;
+        private Panel panel10;
+        private Button btnContactos;
     }
 }
