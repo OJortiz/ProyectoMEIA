@@ -32,6 +32,7 @@ namespace ProyectoMEIA
             try
             {
                 bool existeUsuario = false;
+                string nombre = "", apellido = "", usuario = "";
 
                 if (!File.Exists(ruta_user))
                 {
@@ -53,8 +54,9 @@ namespace ProyectoMEIA
 
                     if (campos.Length == 8)
                     {
-                        string usuario = campos[0];
-
+                        usuario = campos[0];
+                        nombre = campos[1];
+                        apellido = campos[2];
                         if (usuario == txtUsuario.Text)
                         {
                             existeUsuario = true;
@@ -66,7 +68,19 @@ namespace ProyectoMEIA
                 if (existeUsuario)
                 {
                     MessageBox.Show($"El usuario {txtUsuario.Text} sí existe", "Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //MessageBox.Show()
+                    var respuesta = MessageBox.Show("¿Desea Agregar este Usuario a sus Contactos?",
+                                     "Confirmación",
+                                     MessageBoxButtons.YesNo,
+                                     MessageBoxIcon.Question);
+                    if(respuesta == DialogResult.Yes)
+                    {
+                        FormContactos contactos = new FormContactos(usuario, nombre, apellido);
+                        contactos.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Permaneceras en la misma ventana");
+                    }
                 }
                 else
                 {
