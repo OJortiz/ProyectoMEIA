@@ -52,6 +52,7 @@
             lTelefono = new Label();
             saveFileDialog1 = new SaveFileDialog();
             panelOpciones = new Panel();
+            btn_Contacto = new Button();
             panel1.SuspendLayout();
             panel11.SuspendLayout();
             panel10.SuspendLayout();
@@ -69,6 +70,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Navy;
+            panel1.Controls.Add(btn_Contacto);
             panel1.Controls.Add(panel11);
             panel1.Controls.Add(panel10);
             panel1.Controls.Add(panel8);
@@ -332,6 +334,16 @@
             panelOpciones.Size = new Size(545, 540);
             panelOpciones.TabIndex = 7;
             // 
+            // btn_Contacto
+            // 
+            btn_Contacto.Location = new Point(81, 417);
+            btn_Contacto.Name = "btn_Contacto";
+            btn_Contacto.Size = new Size(94, 29);
+            btn_Contacto.TabIndex = 7;
+            btn_Contacto.Text = "Contacto";
+            btn_Contacto.UseVisualStyleBackColor = true;
+            btn_Contacto.Click += btn_Contacto_Click;
+            // 
             // MenuAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -384,5 +396,6 @@
         private Button btnBackup;
         private SaveFileDialog saveFileDialog1;
         private Panel panelOpciones;
+        private Button btn_Contacto;
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ProyectoMEIA
 {
@@ -207,6 +208,12 @@ namespace ProyectoMEIA
         {
             NuevoUsuario nuevo = new NuevoUsuario(null, true); // true indica que es desde MenuAdmin
             nuevo.Show();
+        }
+
+        private void btn_Contacto_Click(object sender, EventArgs e)
+        {
+            FormContactos contactosForm = new FormContactos(lUsuario.Text, "", "", lUsuario.Text); // Usuario actual logeado
+            contactosForm.Show();
         }
     }
 }

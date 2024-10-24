@@ -72,16 +72,17 @@ namespace ProyectoMEIA
                                      "Confirmación",
                                      MessageBoxButtons.YesNo,
                                      MessageBoxIcon.Question);
-                    if(respuesta == DialogResult.Yes)
+                    if (respuesta == DialogResult.Yes)
                     {
-                        FormContactos contactos = new FormContactos(usuario, nombre, apellido);
+                        FormContactos contactos = new FormContactos(usuario, nombre, apellido, username);
                         contactos.Show();
                     }
                     else
                     {
-                        MessageBox.Show("Permaneceras en la misma ventana");
+                        MessageBox.Show("Permanecerás en la misma ventana");
                     }
                 }
+
                 else
                 {
                     MessageBox.Show($"No se encontró el usuario {txtUsuario.Text}", "No Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error);

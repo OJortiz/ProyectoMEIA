@@ -16,6 +16,9 @@
     <Compile Update="FormContactos.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ListaContactos.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MenuAdmin.cs">
       <SubType>Form</SubType>
     </Compile>

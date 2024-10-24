@@ -37,7 +37,7 @@
             txtNombre = new TextBox();
             btnAgregar = new Button();
             btnActualizar = new Button();
-            btnEliminar = new Button();
+            btn_Lista = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -113,6 +113,7 @@
             btnAgregar.TabIndex = 5;
             btnAgregar.Text = "Agregar Contacto";
             btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // btnActualizar
             // 
@@ -122,22 +123,25 @@
             btnActualizar.TabIndex = 6;
             btnActualizar.Text = "Modificar Contacto";
             btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Click += btnActualizar_Click;
             // 
-            // btnEliminar
+            // btn_Lista
             // 
-            btnEliminar.Location = new Point(392, 222);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(150, 35);
-            btnEliminar.TabIndex = 7;
-            btnEliminar.Text = "Eliminar Contacto";
-            btnEliminar.UseVisualStyleBackColor = true;
+            btn_Lista.Location = new Point(393, 225);
+            btn_Lista.Name = "btn_Lista";
+            btn_Lista.Size = new Size(145, 32);
+            btn_Lista.TabIndex = 7;
+            btn_Lista.Text = "Lista de Contactos";
+            btn_Lista.UseVisualStyleBackColor = true;
+            btn_Lista.Click += btn_Lista_Click;
             // 
             // FormContactos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(574, 344);
-            Controls.Add(btnEliminar);
+            Controls.Add(btn_Lista);
             Controls.Add(btnActualizar);
             Controls.Add(btnAgregar);
             Controls.Add(txtNombre);
@@ -167,6 +171,6 @@
         private TextBox txtNombre;
         private Button btnAgregar;
         private Button btnActualizar;
-        private Button btnEliminar;
+        private Button btn_Lista;
     }
 }

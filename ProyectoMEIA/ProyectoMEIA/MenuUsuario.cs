@@ -152,5 +152,11 @@ namespace ProyectoMEIA
             BuscarUsuario buscar = new BuscarUsuario(lUsuario.Text, false);
             MostrarFormPanel(buscar);
         }
+
+        private void btn_ContactoOpciones_Click(object sender, EventArgs e)
+        {
+            FormContactos contactosForm = new FormContactos(lUsuario.Text, "", "", lUsuario.Text); // Usuario actual logeado
+            contactosForm.Show();
+        }
     }
 }

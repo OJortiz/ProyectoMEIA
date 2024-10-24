@@ -49,6 +49,7 @@
             pictureBox1 = new PictureBox();
             panel4 = new Panel();
             panelOpciones = new Panel();
+            btn_ContactoOpciones = new Button();
             panel1.SuspendLayout();
             panel10.SuspendLayout();
             panel8.SuspendLayout();
@@ -105,6 +106,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Navy;
+            panel1.Controls.Add(btn_ContactoOpciones);
             panel1.Controls.Add(panel10);
             panel1.Controls.Add(panel8);
             panel1.Controls.Add(panel7);
@@ -137,7 +139,7 @@
             btnContactos.Name = "btnContactos";
             btnContactos.Size = new Size(255, 44);
             btnContactos.TabIndex = 0;
-            btnContactos.Text = "Contactos";
+            btnContactos.Text = "Búsqueda";
             btnContactos.UseVisualStyleBackColor = true;
             btnContactos.Click += btnContactos_Click;
             // 
@@ -298,6 +300,16 @@
             panelOpciones.Size = new Size(545, 450);
             panelOpciones.TabIndex = 6;
             // 
+            // btn_ContactoOpciones
+            // 
+            btn_ContactoOpciones.Location = new Point(81, 352);
+            btn_ContactoOpciones.Name = "btn_ContactoOpciones";
+            btn_ContactoOpciones.Size = new Size(94, 29);
+            btn_ContactoOpciones.TabIndex = 6;
+            btn_ContactoOpciones.Text = "Contactos";
+            btn_ContactoOpciones.UseVisualStyleBackColor = true;
+            btn_ContactoOpciones.Click += btn_ContactoOpciones_Click;
+            // 
             // MenuUsuario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -347,5 +359,6 @@
         private Panel panel8;
         private Panel panel10;
         private Button btnContactos;
+        private Button btn_ContactoOpciones;
     }
 }
