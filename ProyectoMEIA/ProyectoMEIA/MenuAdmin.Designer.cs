@@ -50,9 +50,10 @@
             lUsuario = new Label();
             lNombre = new Label();
             lTelefono = new Label();
+            btn_Contacto = new Button();
             saveFileDialog1 = new SaveFileDialog();
             panelOpciones = new Panel();
-            btn_Contacto = new Button();
+            panel12 = new Panel();
             panel1.SuspendLayout();
             panel11.SuspendLayout();
             panel10.SuspendLayout();
@@ -65,12 +66,13 @@
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
+            panel12.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.Navy;
-            panel1.Controls.Add(btn_Contacto);
+            panel1.Controls.Add(panel12);
             panel1.Controls.Add(panel11);
             panel1.Controls.Add(panel10);
             panel1.Controls.Add(panel8);
@@ -321,6 +323,21 @@
             lTelefono.TabIndex = 4;
             lTelefono.Text = "Telefono";
             // 
+            // btn_Contacto
+            // 
+            btn_Contacto.Dock = DockStyle.Fill;
+            btn_Contacto.FlatAppearance.BorderSize = 0;
+            btn_Contacto.FlatStyle = FlatStyle.Flat;
+            btn_Contacto.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_Contacto.ForeColor = Color.White;
+            btn_Contacto.Location = new Point(0, 0);
+            btn_Contacto.Name = "btn_Contacto";
+            btn_Contacto.Size = new Size(255, 38);
+            btn_Contacto.TabIndex = 7;
+            btn_Contacto.Text = "Contacto";
+            btn_Contacto.UseVisualStyleBackColor = true;
+            btn_Contacto.Click += btn_Contacto_Click;
+            // 
             // saveFileDialog1
             // 
             saveFileDialog1.Filter = "Archivos de Texto (*.txt)|*.txt";
@@ -334,15 +351,14 @@
             panelOpciones.Size = new Size(545, 540);
             panelOpciones.TabIndex = 7;
             // 
-            // btn_Contacto
+            // panel12
             // 
-            btn_Contacto.Location = new Point(81, 417);
-            btn_Contacto.Name = "btn_Contacto";
-            btn_Contacto.Size = new Size(94, 29);
-            btn_Contacto.TabIndex = 7;
-            btn_Contacto.Text = "Contacto";
-            btn_Contacto.UseVisualStyleBackColor = true;
-            btn_Contacto.Click += btn_Contacto_Click;
+            panel12.Controls.Add(btn_Contacto);
+            panel12.Dock = DockStyle.Top;
+            panel12.Location = new Point(0, 381);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(255, 38);
+            panel12.TabIndex = 7;
             // 
             // MenuAdmin
             // 
@@ -367,6 +383,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            panel12.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -397,5 +414,6 @@
         private SaveFileDialog saveFileDialog1;
         private Panel panelOpciones;
         private Button btn_Contacto;
+        private Panel panel12;
     }
 }

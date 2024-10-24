@@ -213,7 +213,7 @@ namespace ProyectoMEIA
         private void btn_Contacto_Click(object sender, EventArgs e)
         {
             FormContactos contactosForm = new FormContactos(lUsuario.Text, "", "", lUsuario.Text); // Usuario actual logeado
-            contactosForm.Show();
+            MostrarFormPanel(contactosForm);
         }
     }
 }

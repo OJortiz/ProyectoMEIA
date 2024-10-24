@@ -33,6 +33,7 @@
             lUsuario = new Label();
             lTelefono = new Label();
             panel1 = new Panel();
+            btn_ContactoOpciones = new Button();
             panel10 = new Panel();
             btnContactos = new Button();
             panel8 = new Panel();
@@ -49,7 +50,7 @@
             pictureBox1 = new PictureBox();
             panel4 = new Panel();
             panelOpciones = new Panel();
-            btn_ContactoOpciones = new Button();
+            panel11 = new Panel();
             panel1.SuspendLayout();
             panel10.SuspendLayout();
             panel8.SuspendLayout();
@@ -61,6 +62,7 @@
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
+            panel11.SuspendLayout();
             SuspendLayout();
             // 
             // lnombre
@@ -106,7 +108,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Navy;
-            panel1.Controls.Add(btn_ContactoOpciones);
+            panel1.Controls.Add(panel11);
             panel1.Controls.Add(panel10);
             panel1.Controls.Add(panel8);
             panel1.Controls.Add(panel7);
@@ -118,6 +120,21 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(255, 450);
             panel1.TabIndex = 5;
+            // 
+            // btn_ContactoOpciones
+            // 
+            btn_ContactoOpciones.Dock = DockStyle.Fill;
+            btn_ContactoOpciones.FlatAppearance.BorderSize = 0;
+            btn_ContactoOpciones.FlatStyle = FlatStyle.Flat;
+            btn_ContactoOpciones.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_ContactoOpciones.ForeColor = Color.White;
+            btn_ContactoOpciones.Location = new Point(0, 0);
+            btn_ContactoOpciones.Name = "btn_ContactoOpciones";
+            btn_ContactoOpciones.Size = new Size(255, 43);
+            btn_ContactoOpciones.TabIndex = 6;
+            btn_ContactoOpciones.Text = "Contactos";
+            btn_ContactoOpciones.UseVisualStyleBackColor = true;
+            btn_ContactoOpciones.Click += btn_ContactoOpciones_Click;
             // 
             // panel10
             // 
@@ -300,15 +317,14 @@
             panelOpciones.Size = new Size(545, 450);
             panelOpciones.TabIndex = 6;
             // 
-            // btn_ContactoOpciones
+            // panel11
             // 
-            btn_ContactoOpciones.Location = new Point(81, 352);
-            btn_ContactoOpciones.Name = "btn_ContactoOpciones";
-            btn_ContactoOpciones.Size = new Size(94, 29);
-            btn_ContactoOpciones.TabIndex = 6;
-            btn_ContactoOpciones.Text = "Contactos";
-            btn_ContactoOpciones.UseVisualStyleBackColor = true;
-            btn_ContactoOpciones.Click += btn_ContactoOpciones_Click;
+            panel11.Controls.Add(btn_ContactoOpciones);
+            panel11.Dock = DockStyle.Top;
+            panel11.Location = new Point(0, 326);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(255, 43);
+            panel11.TabIndex = 6;
             // 
             // MenuUsuario
             // 
@@ -333,6 +349,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            panel11.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -360,5 +377,6 @@
         private Panel panel10;
         private Button btnContactos;
         private Button btn_ContactoOpciones;
+        private Panel panel11;
     }
 }
