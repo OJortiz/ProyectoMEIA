@@ -33,6 +33,7 @@
             lUsuario = new Label();
             lTelefono = new Label();
             panel1 = new Panel();
+            panel11 = new Panel();
             btn_ContactoOpciones = new Button();
             panel10 = new Panel();
             btnContactos = new Button();
@@ -50,8 +51,9 @@
             pictureBox1 = new PictureBox();
             panel4 = new Panel();
             panelOpciones = new Panel();
-            panel11 = new Panel();
+            btnListaDifusion = new Button();
             panel1.SuspendLayout();
+            panel11.SuspendLayout();
             panel10.SuspendLayout();
             panel8.SuspendLayout();
             panel7.SuspendLayout();
@@ -62,7 +64,6 @@
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
-            panel11.SuspendLayout();
             SuspendLayout();
             // 
             // lnombre
@@ -108,6 +109,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Navy;
+            panel1.Controls.Add(btnListaDifusion);
             panel1.Controls.Add(panel11);
             panel1.Controls.Add(panel10);
             panel1.Controls.Add(panel8);
@@ -120,6 +122,15 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(255, 450);
             panel1.TabIndex = 5;
+            // 
+            // panel11
+            // 
+            panel11.Controls.Add(btn_ContactoOpciones);
+            panel11.Dock = DockStyle.Top;
+            panel11.Location = new Point(0, 326);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(255, 43);
+            panel11.TabIndex = 6;
             // 
             // btn_ContactoOpciones
             // 
@@ -317,14 +328,15 @@
             panelOpciones.Size = new Size(545, 450);
             panelOpciones.TabIndex = 6;
             // 
-            // panel11
+            // btnListaDifusion
             // 
-            panel11.Controls.Add(btn_ContactoOpciones);
-            panel11.Dock = DockStyle.Top;
-            panel11.Location = new Point(0, 326);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(255, 43);
-            panel11.TabIndex = 6;
+            btnListaDifusion.Location = new Point(52, 375);
+            btnListaDifusion.Name = "btnListaDifusion";
+            btnListaDifusion.Size = new Size(151, 29);
+            btnListaDifusion.TabIndex = 0;
+            btnListaDifusion.Text = "Listas de difusión";
+            btnListaDifusion.UseVisualStyleBackColor = true;
+            btnListaDifusion.Click += btnListaDifusion_Click;
             // 
             // MenuUsuario
             // 
@@ -338,6 +350,7 @@
             Name = "MenuUsuario";
             Text = "MenuUsuario";
             panel1.ResumeLayout(false);
+            panel11.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel8.ResumeLayout(false);
             panel7.ResumeLayout(false);
@@ -349,7 +362,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            panel11.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -378,5 +390,6 @@
         private Button btnContactos;
         private Button btn_ContactoOpciones;
         private Panel panel11;
+        private Button btnListaDifusion;
     }
 }

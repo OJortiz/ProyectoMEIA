@@ -50,3 +50,4 @@ C:\Users\maron\source\repos\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net
 C:\Users\ojort\OneDrive\Documentos\GitHub\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net8.0-windows\ProyectoMEIA.FormContactos.resources
 C:\Users\ojort\OneDrive\Documentos\GitHub\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net8.0-windows\ProyectoMEIA.ListaContactos.resources
 C:\Users\maron\source\repos\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net8.0-windows\ProyectoMEIA.ListaContactos.resources
+C:\Users\ojort\OneDrive\Documentos\GitHub\ProyectoMEIA\ProyectoMEIA\ProyectoMEIA\obj\Debug\net8.0-windows\ProyectoMEIA.ListaDifusion.resources
