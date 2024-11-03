@@ -33,6 +33,7 @@
             lUsuario = new Label();
             lTelefono = new Label();
             panel1 = new Panel();
+            btnListaDifusion = new Button();
             panel11 = new Panel();
             btn_ContactoOpciones = new Button();
             panel10 = new Panel();
@@ -51,7 +52,7 @@
             pictureBox1 = new PictureBox();
             panel4 = new Panel();
             panelOpciones = new Panel();
-            btnListaDifusion = new Button();
+            panel12 = new Panel();
             panel1.SuspendLayout();
             panel11.SuspendLayout();
             panel10.SuspendLayout();
@@ -64,6 +65,7 @@
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
+            panel12.SuspendLayout();
             SuspendLayout();
             // 
             // lnombre
@@ -109,7 +111,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Navy;
-            panel1.Controls.Add(btnListaDifusion);
+            panel1.Controls.Add(panel12);
             panel1.Controls.Add(panel11);
             panel1.Controls.Add(panel10);
             panel1.Controls.Add(panel8);
@@ -120,8 +122,23 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(255, 450);
+            panel1.Size = new Size(255, 494);
             panel1.TabIndex = 5;
+            // 
+            // btnListaDifusion
+            // 
+            btnListaDifusion.Dock = DockStyle.Fill;
+            btnListaDifusion.FlatAppearance.BorderSize = 0;
+            btnListaDifusion.FlatStyle = FlatStyle.Flat;
+            btnListaDifusion.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnListaDifusion.ForeColor = Color.White;
+            btnListaDifusion.Location = new Point(0, 0);
+            btnListaDifusion.Name = "btnListaDifusion";
+            btnListaDifusion.Size = new Size(255, 42);
+            btnListaDifusion.TabIndex = 0;
+            btnListaDifusion.Text = "Listas de difusión";
+            btnListaDifusion.UseVisualStyleBackColor = true;
+            btnListaDifusion.Click += btnListaDifusion_Click;
             // 
             // panel11
             // 
@@ -247,7 +264,7 @@
             // 
             panel5.Controls.Add(btnLogout);
             panel5.Dock = DockStyle.Bottom;
-            panel5.Location = new Point(0, 387);
+            panel5.Location = new Point(0, 431);
             panel5.Name = "panel5";
             panel5.Size = new Size(255, 63);
             panel5.TabIndex = 1;
@@ -325,24 +342,23 @@
             panelOpciones.Dock = DockStyle.Fill;
             panelOpciones.Location = new Point(255, 0);
             panelOpciones.Name = "panelOpciones";
-            panelOpciones.Size = new Size(545, 450);
+            panelOpciones.Size = new Size(549, 494);
             panelOpciones.TabIndex = 6;
             // 
-            // btnListaDifusion
+            // panel12
             // 
-            btnListaDifusion.Location = new Point(52, 375);
-            btnListaDifusion.Name = "btnListaDifusion";
-            btnListaDifusion.Size = new Size(151, 29);
-            btnListaDifusion.TabIndex = 0;
-            btnListaDifusion.Text = "Listas de difusión";
-            btnListaDifusion.UseVisualStyleBackColor = true;
-            btnListaDifusion.Click += btnListaDifusion_Click;
+            panel12.Controls.Add(btnListaDifusion);
+            panel12.Dock = DockStyle.Top;
+            panel12.Location = new Point(0, 369);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(255, 42);
+            panel12.TabIndex = 1;
             // 
             // MenuUsuario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(804, 494);
             ControlBox = false;
             Controls.Add(panelOpciones);
             Controls.Add(panel1);
@@ -362,6 +378,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            panel12.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -391,5 +408,6 @@
         private Button btn_ContactoOpciones;
         private Panel panel11;
         private Button btnListaDifusion;
+        private Panel panel12;
     }
 }

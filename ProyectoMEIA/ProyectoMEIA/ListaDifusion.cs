@@ -250,5 +250,102 @@ namespace ProyectoMEIA
         {
             txtNewDescripcion.Enabled = chkDescripcion.Checked;
         }
+
+        private void btnAgregarUser_Click(object sender, EventArgs e)
+        {
+            string rutaIndice = @"C:/MEIA/indice_lista_usuario.txt";
+            string rutaBloque = @"C:/MEIA/bloque_lista_usuario.txt";
+            string rutaLista = @"C:/MEIA/lista.txt";
+            string nombreLista = txtNombreLista.Text.Trim();
+            string usuarioAsociado = txtAgregarUsuario.Text.Trim();
+            DateTime fechaCreacion = DateTime.Now;
+            int estatus = 1;
+
+            if (string.IsNullOrWhiteSpace(nombreLista) || string.IsNullOrWhiteSpace(usuarioAsociado))
+            {
+                MessageBox.Show("Debe agregar el nombre de la lista y el nombre del usuario a agregar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                string descripcion = "";
+                bool listaExiste = false;
+                if (File.Exists(rutaLista))
+                {
+                    string[] lineasLista = File.ReadAllLines(rutaLista);
+                    for (int i = 0; i < lineasLista.Length; i++)
+                    {
+                        string[] camposLista = lineasLista[i].Split(';');
+                        if (camposLista.Length == 6 && camposLista[0] == nombreLista && camposLista[1] == usuarioActual && int.Parse(camposLista[5]) == estatus)
+                        {
+                            listaExiste = true;
+                            descripcion = camposLista[2];
+                            int numeroUsuarios = int.Parse(camposLista[3]) + 1;
+                            camposLista[3] = numeroUsuarios.ToString();
+
+                            lineasLista[i] = string.Join(";", camposLista);
+                            File.WriteAllLines(rutaLista, lineasLista);
+                            break;
+                        }
+                    }
+                }
+
+                if (!listaExiste)
+                {
+                    MessageBox.Show("La lista de difusion no existe");
+                    return;
+                }
+
+                int registro = 1;
+                double posicion = 0.0;
+                if (File.Exists(rutaIndice))
+                {
+                    string[] lineasIndice = File.ReadAllLines(rutaIndice);
+                    registro = lineasIndice.Length + 1;
+                    posicion = lineasIndice.Length;
+
+                    foreach (string linea in lineasIndice)
+                    {
+                        string[] campos = linea.Split(';');
+                        if (campos.Length == 7)
+                        {
+                            string nombre_lista = campos[2];
+                            string usuario = campos[3];
+                            string usuario_asociado = campos[4];
+                            int estatusExistente = int.Parse(campos[6]);
+
+                            if (nombre_lista == nombreLista && usuario == usuarioActual && usuario_asociado == usuarioAsociado && estatusExistente == estatus)
+                            {
+                                MessageBox.Show("El usuario ya esta asociado a la lista de difusion");
+                                return;
+                            }
+                        }
+                    }
+                }
+                using (StreamWriter swIndice = File.AppendText(rutaIndice))
+                {
+                    string nuevaEntradaIndice = $"{registro};{posicion};{nombreLista};{usuarioActual};{usuarioAsociado};{fechaCreacion};{estatus}";
+                    swIndice.WriteLine(nuevaEntradaIndice);
+                }
+
+                using (StreamWriter swBloque = File.AppendText(rutaBloque))
+                {
+                    string nuevaEntradaBloque = $"{nombreLista};{usuarioActual};{usuarioAsociado};{descripcion};{fechaCreacion};{estatus}";
+                    swBloque.WriteLine(nuevaEntradaBloque);
+                }
+
+                MessageBox.Show($"Usuario {usuarioAsociado} agregado a la lista {nombreLista} exitosamente");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnEliminarUser_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

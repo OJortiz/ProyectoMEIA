@@ -38,6 +38,10 @@
             label2 = new Label();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            label10 = new Label();
+            btnAgregarUser = new Button();
+            txtAgregarUsuario = new TextBox();
+            label7 = new Label();
             tabPage2 = new TabPage();
             txtmodificar = new TextBox();
             label5 = new Label();
@@ -50,9 +54,15 @@
             label3 = new Label();
             txtNuevoNombre = new TextBox();
             tabPage3 = new TabPage();
+            btnEliminarUser = new Button();
+            txtEliminarUsuario = new TextBox();
+            label8 = new Label();
             lblEliminar = new Label();
             txtEliminar = new TextBox();
             tabPage4 = new TabPage();
+            btnBuscarUser = new Button();
+            label9 = new Label();
+            txtBuscarUsuario = new TextBox();
             label6 = new Label();
             chkBuscarTodas = new CheckBox();
             txtBuscar = new TextBox();
@@ -80,21 +90,21 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(255, 210);
+            btnAgregar.Location = new Point(104, 264);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(143, 48);
             btnAgregar.TabIndex = 6;
-            btnAgregar.Text = "Agregar";
+            btnAgregar.Text = "Crear Lista";
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click;
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(67, 263);
+            btnBuscar.Location = new Point(20, 279);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(143, 48);
+            btnBuscar.Size = new Size(104, 48);
             btnBuscar.TabIndex = 7;
-            btnBuscar.Text = "Buscar";
+            btnBuscar.Text = "Buscar Lista";
             btnBuscar.UseVisualStyleBackColor = true;
             btnBuscar.Click += btnBuscar_Click;
             // 
@@ -110,11 +120,11 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(259, 222);
+            btnEliminar.Location = new Point(132, 214);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(143, 48);
             btnEliminar.TabIndex = 9;
-            btnEliminar.Text = "Eliminar";
+            btnEliminar.Text = "Eliminar Lista";
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click;
             // 
@@ -151,6 +161,10 @@
             // tabPage1
             // 
             tabPage1.BackColor = Color.LightGray;
+            tabPage1.Controls.Add(label10);
+            tabPage1.Controls.Add(btnAgregarUser);
+            tabPage1.Controls.Add(txtAgregarUsuario);
+            tabPage1.Controls.Add(label7);
             tabPage1.Controls.Add(btnAgregar);
             tabPage1.Controls.Add(txtDescripcion);
             tabPage1.Controls.Add(txtNombreLista);
@@ -162,6 +176,41 @@
             tabPage1.Size = new Size(735, 403);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Agregar";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(126, 13);
+            label10.Name = "label10";
+            label10.Size = new Size(376, 20);
+            label10.TabIndex = 16;
+            label10.Text = "Para agregar usuarios se debe buscar una lista existente";
+            // 
+            // btnAgregarUser
+            // 
+            btnAgregarUser.Location = new Point(359, 264);
+            btnAgregarUser.Name = "btnAgregarUser";
+            btnAgregarUser.Size = new Size(143, 48);
+            btnAgregarUser.TabIndex = 15;
+            btnAgregarUser.Text = "Agregar Usuario";
+            btnAgregarUser.UseVisualStyleBackColor = true;
+            btnAgregarUser.Click += btnAgregarUser_Click;
+            // 
+            // txtAgregarUsuario
+            // 
+            txtAgregarUsuario.Location = new Point(255, 198);
+            txtAgregarUsuario.Name = "txtAgregarUsuario";
+            txtAgregarUsuario.Size = new Size(125, 27);
+            txtAgregarUsuario.TabIndex = 14;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(104, 201);
+            label7.Name = "label7";
+            label7.Size = new Size(62, 20);
+            label7.TabIndex = 13;
+            label7.Text = "Usuario:";
             // 
             // tabPage2
             // 
@@ -282,6 +331,9 @@
             // tabPage3
             // 
             tabPage3.BackColor = Color.LightGray;
+            tabPage3.Controls.Add(btnEliminarUser);
+            tabPage3.Controls.Add(txtEliminarUsuario);
+            tabPage3.Controls.Add(label8);
             tabPage3.Controls.Add(lblEliminar);
             tabPage3.Controls.Add(txtEliminar);
             tabPage3.Controls.Add(btnEliminar);
@@ -291,6 +343,32 @@
             tabPage3.Size = new Size(735, 403);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Eliminar";
+            // 
+            // btnEliminarUser
+            // 
+            btnEliminarUser.Location = new Point(447, 214);
+            btnEliminarUser.Name = "btnEliminarUser";
+            btnEliminarUser.Size = new Size(143, 48);
+            btnEliminarUser.TabIndex = 14;
+            btnEliminarUser.Text = "Eliminar Usuario";
+            btnEliminarUser.UseVisualStyleBackColor = true;
+            btnEliminarUser.Click += btnEliminarUser_Click;
+            // 
+            // txtEliminarUsuario
+            // 
+            txtEliminarUsuario.Location = new Point(447, 118);
+            txtEliminarUsuario.Name = "txtEliminarUsuario";
+            txtEliminarUsuario.Size = new Size(170, 27);
+            txtEliminarUsuario.TabIndex = 13;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(447, 67);
+            label8.Name = "label8";
+            label8.Size = new Size(189, 20);
+            label8.TabIndex = 12;
+            label8.Text = "Usuario que desea eliminar";
             // 
             // lblEliminar
             // 
@@ -311,6 +389,9 @@
             // tabPage4
             // 
             tabPage4.BackColor = Color.LightGray;
+            tabPage4.Controls.Add(btnBuscarUser);
+            tabPage4.Controls.Add(label9);
+            tabPage4.Controls.Add(txtBuscarUsuario);
             tabPage4.Controls.Add(label6);
             tabPage4.Controls.Add(chkBuscarTodas);
             tabPage4.Controls.Add(txtBuscar);
@@ -323,10 +404,35 @@
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Buscar";
             // 
+            // btnBuscarUser
+            // 
+            btnBuscarUser.Location = new Point(159, 279);
+            btnBuscarUser.Name = "btnBuscarUser";
+            btnBuscarUser.Size = new Size(104, 48);
+            btnBuscarUser.TabIndex = 15;
+            btnBuscarUser.Text = "Buscar Usuario";
+            btnBuscarUser.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(70, 161);
+            label9.Name = "label9";
+            label9.Size = new Size(59, 20);
+            label9.TabIndex = 14;
+            label9.Text = "Usuario";
+            // 
+            // txtBuscarUsuario
+            // 
+            txtBuscarUsuario.Location = new Point(69, 202);
+            txtBuscarUsuario.Name = "txtBuscarUsuario";
+            txtBuscarUsuario.Size = new Size(125, 27);
+            txtBuscarUsuario.TabIndex = 13;
+            // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(64, 48);
+            label6.Location = new Point(69, 24);
             label6.Name = "label6";
             label6.Size = new Size(77, 20);
             label6.TabIndex = 12;
@@ -335,7 +441,7 @@
             // chkBuscarTodas
             // 
             chkBuscarTodas.AutoSize = true;
-            chkBuscarTodas.Location = new Point(67, 199);
+            chkBuscarTodas.Location = new Point(68, 120);
             chkBuscarTodas.Name = "chkBuscarTodas";
             chkBuscarTodas.Size = new Size(121, 24);
             chkBuscarTodas.TabIndex = 11;
@@ -344,14 +450,14 @@
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(63, 89);
+            txtBuscar.Location = new Point(68, 65);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(125, 27);
             txtBuscar.TabIndex = 10;
             // 
             // listViewResultados
             // 
-            listViewResultados.Location = new Point(271, 26);
+            listViewResultados.Location = new Point(295, 29);
             listViewResultados.Name = "listViewResultados";
             listViewResultados.Size = new Size(420, 335);
             listViewResultados.TabIndex = 9;
@@ -412,5 +518,15 @@
         private TextBox txtBuscar;
         private Label label6;
         private CheckBox chkBuscarTodas;
+        private TextBox txtAgregarUsuario;
+        private Label label7;
+        private Button btnAgregarUser;
+        private Button btnEliminarUser;
+        private TextBox txtEliminarUsuario;
+        private Label label8;
+        private Button btnBuscarUser;
+        private Label label9;
+        private TextBox txtBuscarUsuario;
+        private Label label10;
     }
 }
