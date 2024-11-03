@@ -158,5 +158,11 @@ namespace ProyectoMEIA
             FormContactos contactosForm = new FormContactos(lUsuario.Text, "", "", lUsuario.Text); // Usuario actual logeado
             MostrarFormPanel(contactosForm);
         }
+
+        private void btnListaDifusion_Click(object sender, EventArgs e)
+        {
+            ListaDifusion listaDifusion = new ListaDifusion(lUsuario.Text);
+            listaDifusion.Show();
+        }
     }
 }
