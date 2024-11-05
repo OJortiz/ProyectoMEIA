@@ -60,18 +60,23 @@
             lblEliminar = new Label();
             txtEliminar = new TextBox();
             tabPage4 = new TabPage();
-            btnBuscarUser = new Button();
-            label9 = new Label();
-            txtBuscarUsuario = new TextBox();
             label6 = new Label();
             chkBuscarTodas = new CheckBox();
             txtBuscar = new TextBox();
             listViewResultados = new ListView();
+            tabPage5 = new TabPage();
+            btnBuscarUser = new Button();
+            txtBuscarUsuario = new TextBox();
+            label11 = new Label();
+            txtListaUsuario = new TextBox();
+            listViewUsuarios = new ListView();
+            label9 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
             tabPage3.SuspendLayout();
             tabPage4.SuspendLayout();
+            tabPage5.SuspendLayout();
             SuspendLayout();
             // 
             // txtNombreLista
@@ -100,9 +105,9 @@
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(20, 279);
+            btnBuscar.Location = new Point(53, 192);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(104, 48);
+            btnBuscar.Size = new Size(167, 48);
             btnBuscar.TabIndex = 7;
             btnBuscar.Text = "Buscar Lista";
             btnBuscar.UseVisualStyleBackColor = true;
@@ -152,6 +157,7 @@
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Controls.Add(tabPage4);
+            tabControl1.Controls.Add(tabPage5);
             tabControl1.Location = new Point(70, 12);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -389,9 +395,6 @@
             // tabPage4
             // 
             tabPage4.BackColor = Color.LightGray;
-            tabPage4.Controls.Add(btnBuscarUser);
-            tabPage4.Controls.Add(label9);
-            tabPage4.Controls.Add(txtBuscarUsuario);
             tabPage4.Controls.Add(label6);
             tabPage4.Controls.Add(chkBuscarTodas);
             tabPage4.Controls.Add(txtBuscar);
@@ -403,31 +406,6 @@
             tabPage4.Size = new Size(735, 403);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Buscar";
-            // 
-            // btnBuscarUser
-            // 
-            btnBuscarUser.Location = new Point(159, 279);
-            btnBuscarUser.Name = "btnBuscarUser";
-            btnBuscarUser.Size = new Size(104, 48);
-            btnBuscarUser.TabIndex = 15;
-            btnBuscarUser.Text = "Buscar Usuario";
-            btnBuscarUser.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(70, 161);
-            label9.Name = "label9";
-            label9.Size = new Size(59, 20);
-            label9.TabIndex = 14;
-            label9.Text = "Usuario";
-            // 
-            // txtBuscarUsuario
-            // 
-            txtBuscarUsuario.Location = new Point(69, 202);
-            txtBuscarUsuario.Name = "txtBuscarUsuario";
-            txtBuscarUsuario.Size = new Size(125, 27);
-            txtBuscarUsuario.TabIndex = 13;
             // 
             // label6
             // 
@@ -464,6 +442,72 @@
             listViewResultados.UseCompatibleStateImageBehavior = false;
             listViewResultados.View = View.Details;
             // 
+            // tabPage5
+            // 
+            tabPage5.BackColor = Color.LightGray;
+            tabPage5.Controls.Add(btnBuscarUser);
+            tabPage5.Controls.Add(txtBuscarUsuario);
+            tabPage5.Controls.Add(label11);
+            tabPage5.Controls.Add(txtListaUsuario);
+            tabPage5.Controls.Add(listViewUsuarios);
+            tabPage5.Controls.Add(label9);
+            tabPage5.Location = new Point(4, 29);
+            tabPage5.Name = "tabPage5";
+            tabPage5.Padding = new Padding(3);
+            tabPage5.Size = new Size(735, 403);
+            tabPage5.TabIndex = 4;
+            tabPage5.Text = "Buscar Usuario";
+            // 
+            // btnBuscarUser
+            // 
+            btnBuscarUser.Location = new Point(51, 240);
+            btnBuscarUser.Name = "btnBuscarUser";
+            btnBuscarUser.Size = new Size(134, 54);
+            btnBuscarUser.TabIndex = 5;
+            btnBuscarUser.Text = "Buscar Usuario";
+            btnBuscarUser.UseVisualStyleBackColor = true;
+            btnBuscarUser.Click += btnBuscarUser_Click;
+            // 
+            // txtBuscarUsuario
+            // 
+            txtBuscarUsuario.Location = new Point(51, 168);
+            txtBuscarUsuario.Name = "txtBuscarUsuario";
+            txtBuscarUsuario.Size = new Size(125, 27);
+            txtBuscarUsuario.TabIndex = 4;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(51, 126);
+            label11.Name = "label11";
+            label11.Size = new Size(62, 20);
+            label11.TabIndex = 3;
+            label11.Text = "Usuario:";
+            // 
+            // txtListaUsuario
+            // 
+            txtListaUsuario.Location = new Point(51, 67);
+            txtListaUsuario.Name = "txtListaUsuario";
+            txtListaUsuario.Size = new Size(133, 27);
+            txtListaUsuario.TabIndex = 2;
+            // 
+            // listViewUsuarios
+            // 
+            listViewUsuarios.Location = new Point(291, 22);
+            listViewUsuarios.Name = "listViewUsuarios";
+            listViewUsuarios.Size = new Size(421, 351);
+            listViewUsuarios.TabIndex = 1;
+            listViewUsuarios.UseCompatibleStateImageBehavior = false;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(51, 22);
+            label9.Name = "label9";
+            label9.Size = new Size(101, 20);
+            label9.TabIndex = 0;
+            label9.Text = "Nombre Lista:";
+            // 
             // ListaDifusion
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -484,6 +528,8 @@
             tabPage3.PerformLayout();
             tabPage4.ResumeLayout(false);
             tabPage4.PerformLayout();
+            tabPage5.ResumeLayout(false);
+            tabPage5.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -524,9 +570,13 @@
         private Button btnEliminarUser;
         private TextBox txtEliminarUsuario;
         private Label label8;
-        private Button btnBuscarUser;
+        private Label label10;
+        private TabPage tabPage5;
+        private ListView listViewUsuarios;
         private Label label9;
         private TextBox txtBuscarUsuario;
-        private Label label10;
+        private Label label11;
+        private TextBox txtListaUsuario;
+        private Button btnBuscarUser;
     }
 }

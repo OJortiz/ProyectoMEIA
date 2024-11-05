@@ -18,7 +18,7 @@ namespace ProyectoMEIA
         {
             InitializeComponent();
             usuarioActual = usuario;
-            // Configuración de columnas en el ListView
+            // Configuración de columnas en el ListView para buscar las listas de difusion
             listViewResultados.View = View.Details;
             listViewResultados.Columns.Clear();
             listViewResultados.Columns.Add("Nombre Lista", 120);
@@ -27,6 +27,14 @@ namespace ProyectoMEIA
             listViewResultados.Columns.Add("Número de Usuarios", 120);
             listViewResultados.Columns.Add("Fecha de Creación", 120);
             listViewResultados.Columns.Add("Estatus", 80);
+            //Configuracion de columnas en el ListView para buscar usuarios en las listas
+            listViewUsuarios.View = View.Details;
+            listViewUsuarios.Columns.Clear();
+            listViewUsuarios.Columns.Add("Nombre Lista", 120);
+            listViewUsuarios.Columns.Add("Usuario", 100);
+            listViewUsuarios.Columns.Add("Descripcion", 150);
+            listViewUsuarios.Columns.Add("Usuario Asociado", 120);
+            listViewUsuarios.Columns.Add("Estatus", 80);
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -129,6 +137,8 @@ namespace ProyectoMEIA
         private void btnModificar_Click(object sender, EventArgs e)
         {
             string rutaListas = @"C:\MEIA\lista.txt";
+            string rutaIndice = @"C:\MEIA\indice_lista_usuario.txt";
+            string rutaBloque = @"C:\MEIA\bloque_lista_usuario.txt";
             string nombreLista = txtmodificar.Text;
 
             if (!chkNombre.Checked && !chkDescripcion.Checked && !chkEstatus.Checked)
@@ -176,6 +186,66 @@ namespace ProyectoMEIA
                 }
             }
 
+            File.WriteAllLines(rutaListas, lineas);
+
+            if (File.Exists(rutaIndice))
+            {
+                string[] lineasIndice = File.ReadAllLines(rutaIndice);
+                for (int i = 0; i < lineasIndice.Length; i++)
+                {
+                    string[] camposIndice = lineasIndice[i].Split(';');
+                    if (camposIndice.Length == 7 && camposIndice[2] == nombreLista && camposIndice[3] == usuarioActual)
+                    {
+                        listaEncontrada = true;
+                        if (chkNombre.Checked && !string.IsNullOrWhiteSpace(txtNuevoNombre.Text))
+                        {
+                            camposIndice[2] = txtNuevoNombre.Text;
+                        }
+                        if (chkEstatus.Checked)
+                        {
+                            camposIndice[6] = camposIndice[6] == "1" ? "0" : "1";
+                            lblEstatus.Text = camposIndice[6] == "1" ? "Activo" : "Inactivo";
+                            lblEstatus.ForeColor = camposIndice[6] == "1" ? Color.Green : Color.Red;
+                        }
+
+                        lineasIndice[i] = string.Join(";", camposIndice);
+                        break;
+                    }
+                }
+                File.WriteAllLines(rutaIndice, lineasIndice);
+            }
+
+            if (File.Exists(rutaBloque))
+            {
+                string[] lineasBloque = File.ReadAllLines(rutaBloque);
+                for (int i = 0; i < lineasBloque.Length; i++)
+                {
+                    string[] camposBloque = lineasBloque[i].Split(';');
+                    if (camposBloque.Length == 6 && camposBloque[0] == nombreLista && camposBloque[1] == usuarioActual)
+                    {
+                        listaEncontrada = true;
+                        if (chkNombre.Checked && !string.IsNullOrWhiteSpace(txtNuevoNombre.Text))
+                        {
+                            camposBloque[0] = txtNuevoNombre.Text;
+                        }
+                        if (chkDescripcion.Checked && !string.IsNullOrWhiteSpace(txtNewDescripcion.Text))
+                        {
+                            camposBloque[3] = txtNewDescripcion.Text;
+                        }
+                        if (chkEstatus.Checked)
+                        {
+                            camposBloque[5] = camposBloque[5] == "1" ? "0" : "1";
+                            lblEstatus.Text = camposBloque[5] == "1" ? "Activo" : "Inactivo";
+                            lblEstatus.ForeColor = camposBloque[5] == "1" ? Color.Green : Color.Red;
+                        }
+
+                        lineasBloque[i] = string.Join(";", camposBloque);
+                        break;
+                    }
+                }
+                File.WriteAllLines(rutaBloque, lineasBloque);
+            }
+
             if (!listaEncontrada)
             {
                 MessageBox.Show("La lista especificada no existe o no pertenece al usuario actual.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -184,7 +254,6 @@ namespace ProyectoMEIA
                 return;
             }
 
-            File.WriteAllLines(rutaListas, lineas);
             MessageBox.Show("Lista modificada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -345,7 +414,130 @@ namespace ProyectoMEIA
 
         private void btnEliminarUser_Click(object sender, EventArgs e)
         {
+            string rutaLista = @"C:\MEIA\lista.txt";
+            string rutaIndice = @"C:\MEIA\indice_lista_usuario.txt";
+            string rutaBloque = @"C:\MEIA\bloque_lista_usuario.txt";
+            string nombreLista = txtEliminar.Text;
+            string eliminarUsuario = txtEliminarUsuario.Text;
 
+            if (string.IsNullOrWhiteSpace(nombreLista) || string.IsNullOrWhiteSpace(eliminarUsuario))
+            {
+                MessageBox.Show("Debe ingresar el nombre de la lista y el usuario que desea eliminar de ella", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            bool usuarioEncontrado = false;
+
+            if (File.Exists(rutaIndice))
+            {
+                string[] lineasIndice = File.ReadAllLines(rutaIndice);
+                for (int i = 0; i < lineasIndice.Length; i++)
+                {
+                    string[] camposIndice = lineasIndice[i].Split(';');
+                    if (camposIndice.Length == 7 && camposIndice[2] == nombreLista && camposIndice[3] == usuarioActual && camposIndice[4] == eliminarUsuario)
+                    {
+                        camposIndice[6] = "0";
+                        lineasIndice[i] = string.Join(";", camposIndice);
+                        usuarioEncontrado = true;
+                        break;
+                    }
+                }
+                File.WriteAllLines(rutaIndice, lineasIndice);
+            }
+
+            if (File.Exists(rutaBloque))
+            {
+                string[] lineasBloque = File.ReadAllLines(rutaBloque);
+                for (int i = 0; i < lineasBloque.Length; i++)
+                {
+                    string[] camposBloque = lineasBloque[i].Split(';');
+                    if (camposBloque.Length == 6 && camposBloque[0] == nombreLista && camposBloque[1] == usuarioActual && camposBloque[2] == eliminarUsuario)
+                    {
+                        camposBloque[5] = "0";
+                        lineasBloque[i] = string.Join(";", camposBloque);
+                        usuarioEncontrado = true;
+                        break;
+                    }
+                }
+                File.WriteAllLines(rutaBloque, lineasBloque);
+            }
+
+            if (usuarioEncontrado && File.Exists(rutaLista))
+            {
+                string[] lineasLista = File.ReadAllLines(rutaLista);
+                for (int i = 0; i < lineasLista.Length; i++)
+                {
+                    string[] camposLista = lineasLista[i].Split(";");
+                    if (camposLista.Length == 6 && camposLista[0] == nombreLista && camposLista[1] == usuarioActual)
+                    {
+                        int numeroUsuarios = int.Parse(camposLista[3]);
+                        if (numeroUsuarios > 0)
+                        {
+                            numeroUsuarios--;
+                            camposLista[3] = numeroUsuarios.ToString();
+                            lineasLista[i] = string.Join(";", camposLista);
+                            File.WriteAllLines(rutaLista, lineasLista);
+                        }
+                        break;
+                    }
+                }
+            }
+
+            if (usuarioEncontrado)
+            {
+                MessageBox.Show("Usuario eliminado exitosamente de la lista.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No se encontró el usuario especificado en la lista.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnBuscarUser_Click(object sender, EventArgs e)
+        {
+            string rutaBloque = @"C:/MEIA/bloque_lista_usuario.txt";
+            string nombreLista = txtListaUsuario.Text;
+            string usuarioBusqueda = txtBuscarUsuario.Text;
+            listViewUsuarios.Items.Clear();
+
+            if(!File.Exists(rutaBloque))
+            {
+                MessageBox.Show("El archivo de índice o bloque de usuarios no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(usuarioBusqueda) && string.IsNullOrWhiteSpace(nombreLista))
+            {
+                MessageBox.Show("No se puede buscar si no se ingresa la lista y el usuario deseado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string[] lineasBloque = File.ReadAllLines(rutaBloque);
+            foreach(string linea in lineasBloque)
+            {
+                string[] camposBloque = linea.Split(";");
+                string nombreListaArchivo = camposBloque[0];
+                string usuario = camposBloque[1];
+                string usuarioAsociado = camposBloque[2];
+                string descripcion = camposBloque[3];
+                bool estatus = camposBloque[5] == "1";
+
+                if (nombreListaArchivo == nombreLista && usuarioAsociado.Contains(usuarioBusqueda) && usuario == usuarioActual && estatus)
+                {
+                    ListViewItem item = new ListViewItem(nombreListaArchivo);
+                    item.SubItems.Add(usuario);
+                    item.SubItems.Add(descripcion);
+                    item.SubItems.Add(usuarioAsociado);
+                    item.SubItems.Add(estatus ? "Activo" : "Inactivo");
+
+                    listViewUsuarios.Items.Add(item);
+                }
+            }
+
+            if(listViewUsuarios.Items.Count == 0)
+            {
+                MessageBox.Show("No se encontraron usuarios que coincidan con la búsqueda en la lista especificada.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
