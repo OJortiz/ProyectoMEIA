@@ -108,23 +108,26 @@ namespace ProyectoMEIA
             foreach (string linea in lineas)
             {
                 string[] campos = linea.Split(';');
-                string nombreLista = campos[0];
-                string usuarioLista = campos[1];
-                string descripcion = campos[2];
-                int numeroUsuarios = int.Parse(campos[3]);
-                DateTime fechaCreacion = DateTime.Parse(campos[4]);
-                bool estatus = campos[5] == "1";
-
-                if ((buscarTodas || nombreLista.Contains(terminoBusqueda)) && usuarioLista == usuarioActual)
+                if (campos.Length == 6)
                 {
-                    ListViewItem item = new ListViewItem(nombreLista);
-                    item.SubItems.Add(usuarioLista);
-                    item.SubItems.Add(descripcion);
-                    item.SubItems.Add(numeroUsuarios.ToString());
-                    item.SubItems.Add(fechaCreacion.ToString("dd/MM/yyyy"));
-                    item.SubItems.Add(estatus ? "Activo" : "Inactivo");
+                    string nombreLista = campos[0];
+                    string usuarioLista = campos[1];
+                    string descripcion = campos[2];
+                    int numeroUsuarios = int.Parse(campos[3]);
+                    DateTime fechaCreacion = DateTime.Parse(campos[4]);
+                    bool estatus = campos[5] == "1";
 
-                    listViewResultados.Items.Add(item);
+                    if ((buscarTodas || nombreLista.Contains(terminoBusqueda)) && usuarioLista == usuarioActual)
+                    {
+                        ListViewItem item = new ListViewItem(nombreLista);
+                        item.SubItems.Add(usuarioLista);
+                        item.SubItems.Add(descripcion);
+                        item.SubItems.Add(numeroUsuarios.ToString());
+                        item.SubItems.Add(fechaCreacion.ToString("dd/MM/yyyy"));
+                        item.SubItems.Add(estatus ? "Activo" : "Inactivo");
+
+                        listViewResultados.Items.Add(item);
+                    }
                 }
             }
 
@@ -182,7 +185,6 @@ namespace ProyectoMEIA
                     }
 
                     lineas[i] = string.Join(";", campos);
-                    break;
                 }
             }
 
@@ -209,7 +211,6 @@ namespace ProyectoMEIA
                         }
 
                         lineasIndice[i] = string.Join(";", camposIndice);
-                        break;
                     }
                 }
                 File.WriteAllLines(rutaIndice, lineasIndice);
@@ -240,7 +241,6 @@ namespace ProyectoMEIA
                         }
 
                         lineasBloque[i] = string.Join(";", camposBloque);
-                        break;
                     }
                 }
                 File.WriteAllLines(rutaBloque, lineasBloque);
@@ -340,6 +340,8 @@ namespace ProyectoMEIA
             {
                 string descripcion = "";
                 bool listaExiste = false;
+                bool usuarioEncontrado = false;
+                int indexUsuarioEstatus0 = -1;
                 if (File.Exists(rutaLista))
                 {
                     string[] lineasLista = File.ReadAllLines(rutaLista);
@@ -374,9 +376,9 @@ namespace ProyectoMEIA
                     registro = lineasIndice.Length + 1;
                     posicion = lineasIndice.Length;
 
-                    foreach (string linea in lineasIndice)
+                    for(int i =0; i<lineasIndice.Length; i++)
                     {
-                        string[] campos = linea.Split(';');
+                        string[] campos = lineasIndice[i].Split(';');
                         if (campos.Length == 7)
                         {
                             string nombre_lista = campos[2];
@@ -389,22 +391,53 @@ namespace ProyectoMEIA
                                 MessageBox.Show("El usuario ya esta asociado a la lista de difusion");
                                 return;
                             }
+                            else if (nombre_lista == nombreLista && usuario == usuarioActual && usuario_asociado == usuarioAsociado && estatusExistente == 0)
+                            {
+                                usuarioEncontrado = true;
+                                indexUsuarioEstatus0 = i;
+                            }
                         }
                     }
                 }
-                using (StreamWriter swIndice = File.AppendText(rutaIndice))
-                {
-                    string nuevaEntradaIndice = $"{registro};{posicion};{nombreLista};{usuarioActual};{usuarioAsociado};{fechaCreacion};{estatus}";
-                    swIndice.WriteLine(nuevaEntradaIndice);
-                }
 
-                using (StreamWriter swBloque = File.AppendText(rutaBloque))
+                if (usuarioEncontrado)
                 {
-                    string nuevaEntradaBloque = $"{nombreLista};{usuarioActual};{usuarioAsociado};{descripcion};{fechaCreacion};{estatus}";
-                    swBloque.WriteLine(nuevaEntradaBloque);
-                }
+                    string[] lineasIndice = File.ReadAllLines(rutaIndice);
+                    string[] camposIndice = lineasIndice[indexUsuarioEstatus0].Split(';');
+                    camposIndice[6] = "1";
+                    lineasIndice[indexUsuarioEstatus0] = string.Join(";", camposIndice);
+                    File.WriteAllLines(rutaIndice, lineasIndice);
 
-                MessageBox.Show($"Usuario {usuarioAsociado} agregado a la lista {nombreLista} exitosamente");
+                    string[] lineasBloque = File.ReadAllLines(rutaBloque);
+                    for (int i = 0; i < lineasBloque.Length; i++)
+                    {
+                        string[] camposBloque = lineasBloque[i].Split(';');
+                        if (camposBloque[0] == nombreLista && camposBloque[1] == usuarioActual && camposBloque[2] == usuarioAsociado && camposBloque[5] == "0")
+                        {
+                            camposBloque[5] = "1";
+                            lineasBloque[i] = string.Join(";", camposBloque);
+                            File.WriteAllLines(rutaBloque, lineasBloque);
+                            break;
+                        }
+                    }
+                    MessageBox.Show($"Usuario {usuarioAsociado} reactivado en la lista {nombreLista} exitosamente");
+                }
+                else
+                {
+                    using (StreamWriter swIndice = File.AppendText(rutaIndice))
+                    {
+                        string nuevaEntradaIndice = $"{registro};{posicion};{nombreLista};{usuarioActual};{usuarioAsociado};{fechaCreacion};{estatus}";
+                        swIndice.WriteLine(nuevaEntradaIndice);
+                    }
+
+                    using (StreamWriter swBloque = File.AppendText(rutaBloque))
+                    {
+                        string nuevaEntradaBloque = $"{nombreLista};{usuarioActual};{usuarioAsociado};{descripcion};{fechaCreacion};{estatus}";
+                        swBloque.WriteLine(nuevaEntradaBloque);
+                    }
+
+                    MessageBox.Show($"Usuario {usuarioAsociado} agregado a la lista {nombreLista} exitosamente");
+                }
             }
             catch (Exception ex)
             {
@@ -516,21 +549,24 @@ namespace ProyectoMEIA
             foreach(string linea in lineasBloque)
             {
                 string[] camposBloque = linea.Split(";");
-                string nombreListaArchivo = camposBloque[0];
-                string usuario = camposBloque[1];
-                string usuarioAsociado = camposBloque[2];
-                string descripcion = camposBloque[3];
-                bool estatus = camposBloque[5] == "1";
-
-                if (nombreListaArchivo == nombreLista && usuarioAsociado.Contains(usuarioBusqueda) && usuario == usuarioActual && estatus)
+                if (camposBloque.Length == 6)
                 {
-                    ListViewItem item = new ListViewItem(nombreListaArchivo);
-                    item.SubItems.Add(usuario);
-                    item.SubItems.Add(descripcion);
-                    item.SubItems.Add(usuarioAsociado);
-                    item.SubItems.Add(estatus ? "Activo" : "Inactivo");
+                    string nombreListaArchivo = camposBloque[0];
+                    string usuario = camposBloque[1];
+                    string usuarioAsociado = camposBloque[2];
+                    string descripcion = camposBloque[3];
+                    bool estatus = camposBloque[5] == "1";
 
-                    listViewUsuarios.Items.Add(item);
+                    if (nombreListaArchivo == nombreLista && usuarioAsociado.Contains(usuarioBusqueda) && usuario == usuarioActual && estatus)
+                    {
+                        ListViewItem item = new ListViewItem(nombreListaArchivo);
+                        item.SubItems.Add(usuario);
+                        item.SubItems.Add(descripcion);
+                        item.SubItems.Add(usuarioAsociado);
+                        item.SubItems.Add(estatus ? "Activo" : "Inactivo");
+
+                        listViewUsuarios.Items.Add(item);
+                    }
                 }
             }
 
