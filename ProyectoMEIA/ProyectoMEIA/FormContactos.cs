@@ -36,9 +36,19 @@ namespace ProyectoMEIA
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             string rutaContactos = @"C:\MEIA\contactos.txt";
-            string usuario = txtUsuario.Text; 
+            string usuario = txtUsuario.Text;
+            string contacto = txtNombre.Text;
             DateTime fechaTransaccion = DateTime.Now;
 
+            if (string.IsNullOrWhiteSpace(contacto))
+            {
+                MessageBox.Show("Ingrese el nombre del usuario que desea agregar como contacto");
+            }
+
+            if (string.IsNullOrWhiteSpace(usuario))
+            {
+                MessageBox.Show("El nombre del usuario actual no puede ir vacio");
+            }
             try
             {
                 if (!File.Exists(rutaContactos))
