@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaDifusion));
             txtNombreLista = new TextBox();
             txtDescripcion = new TextBox();
             btnAgregar = new Button();
@@ -81,21 +82,21 @@
             // 
             // txtNombreLista
             // 
-            txtNombreLista.Location = new Point(255, 62);
+            txtNombreLista.Location = new Point(312, 88);
             txtNombreLista.Name = "txtNombreLista";
             txtNombreLista.Size = new Size(125, 27);
             txtNombreLista.TabIndex = 0;
             // 
             // txtDescripcion
             // 
-            txtDescripcion.Location = new Point(255, 135);
+            txtDescripcion.Location = new Point(312, 161);
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(247, 27);
             txtDescripcion.TabIndex = 1;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(104, 264);
+            btnAgregar.Location = new Point(161, 290);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(143, 48);
             btnAgregar.TabIndex = 6;
@@ -136,7 +137,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(104, 69);
+            label1.Location = new Point(161, 95);
             label1.Name = "label1";
             label1.Size = new Size(119, 20);
             label1.TabIndex = 11;
@@ -145,7 +146,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(104, 138);
+            label2.Location = new Point(161, 164);
             label2.Name = "label2";
             label2.Size = new Size(87, 20);
             label2.TabIndex = 12;
@@ -186,7 +187,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(126, 13);
+            label10.Location = new Point(183, 39);
             label10.Name = "label10";
             label10.Size = new Size(376, 20);
             label10.TabIndex = 16;
@@ -194,7 +195,7 @@
             // 
             // btnAgregarUser
             // 
-            btnAgregarUser.Location = new Point(359, 264);
+            btnAgregarUser.Location = new Point(416, 290);
             btnAgregarUser.Name = "btnAgregarUser";
             btnAgregarUser.Size = new Size(143, 48);
             btnAgregarUser.TabIndex = 15;
@@ -204,7 +205,7 @@
             // 
             // txtAgregarUsuario
             // 
-            txtAgregarUsuario.Location = new Point(255, 198);
+            txtAgregarUsuario.Location = new Point(312, 224);
             txtAgregarUsuario.Name = "txtAgregarUsuario";
             txtAgregarUsuario.Size = new Size(125, 27);
             txtAgregarUsuario.TabIndex = 14;
@@ -212,7 +213,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(104, 201);
+            label7.Location = new Point(161, 227);
             label7.Name = "label7";
             label7.Size = new Size(62, 20);
             label7.TabIndex = 13;
@@ -516,6 +517,7 @@
             ClientSize = new Size(881, 501);
             Controls.Add(tabControl1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ListaDifusion";
             Text = "ListaDifusion";
             Load += ListaDifusion_Load;

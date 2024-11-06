@@ -163,6 +163,7 @@ namespace ProyectoMEIA
         {
             ListaDifusion listaDifusion = new ListaDifusion(lUsuario.Text);
             listaDifusion.Show();
+            this.Close();
         }
     }
 }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            panel12 = new Panel();
+            btn_Contacto = new Button();
             panel11 = new Panel();
             btnBackup = new Button();
             panel10 = new Panel();
@@ -50,11 +52,11 @@
             lUsuario = new Label();
             lNombre = new Label();
             lTelefono = new Label();
-            btn_Contacto = new Button();
             saveFileDialog1 = new SaveFileDialog();
             panelOpciones = new Panel();
-            panel12 = new Panel();
+            btnListaDifusion = new Button();
             panel1.SuspendLayout();
+            panel12.SuspendLayout();
             panel11.SuspendLayout();
             panel10.SuspendLayout();
             panel8.SuspendLayout();
@@ -66,12 +68,12 @@
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
-            panel12.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.Navy;
+            panel1.Controls.Add(btnListaDifusion);
             panel1.Controls.Add(panel12);
             panel1.Controls.Add(panel11);
             panel1.Controls.Add(panel10);
@@ -85,6 +87,30 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(255, 540);
             panel1.TabIndex = 6;
+            // 
+            // panel12
+            // 
+            panel12.Controls.Add(btn_Contacto);
+            panel12.Dock = DockStyle.Top;
+            panel12.Location = new Point(0, 381);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(255, 38);
+            panel12.TabIndex = 7;
+            // 
+            // btn_Contacto
+            // 
+            btn_Contacto.Dock = DockStyle.Fill;
+            btn_Contacto.FlatAppearance.BorderSize = 0;
+            btn_Contacto.FlatStyle = FlatStyle.Flat;
+            btn_Contacto.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_Contacto.ForeColor = Color.White;
+            btn_Contacto.Location = new Point(0, 0);
+            btn_Contacto.Name = "btn_Contacto";
+            btn_Contacto.Size = new Size(255, 38);
+            btn_Contacto.TabIndex = 7;
+            btn_Contacto.Text = "Contacto";
+            btn_Contacto.UseVisualStyleBackColor = true;
+            btn_Contacto.Click += btn_Contacto_Click;
             // 
             // panel11
             // 
@@ -323,21 +349,6 @@
             lTelefono.TabIndex = 4;
             lTelefono.Text = "Telefono";
             // 
-            // btn_Contacto
-            // 
-            btn_Contacto.Dock = DockStyle.Fill;
-            btn_Contacto.FlatAppearance.BorderSize = 0;
-            btn_Contacto.FlatStyle = FlatStyle.Flat;
-            btn_Contacto.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_Contacto.ForeColor = Color.White;
-            btn_Contacto.Location = new Point(0, 0);
-            btn_Contacto.Name = "btn_Contacto";
-            btn_Contacto.Size = new Size(255, 38);
-            btn_Contacto.TabIndex = 7;
-            btn_Contacto.Text = "Contacto";
-            btn_Contacto.UseVisualStyleBackColor = true;
-            btn_Contacto.Click += btn_Contacto_Click;
-            // 
             // saveFileDialog1
             // 
             saveFileDialog1.Filter = "Archivos de Texto (*.txt)|*.txt";
@@ -351,14 +362,20 @@
             panelOpciones.Size = new Size(545, 540);
             panelOpciones.TabIndex = 7;
             // 
-            // panel12
+            // btnListaDifusion
             // 
-            panel12.Controls.Add(btn_Contacto);
-            panel12.Dock = DockStyle.Top;
-            panel12.Location = new Point(0, 381);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(255, 38);
-            panel12.TabIndex = 7;
+            btnListaDifusion.Dock = DockStyle.Fill;
+            btnListaDifusion.FlatAppearance.BorderSize = 0;
+            btnListaDifusion.FlatStyle = FlatStyle.Flat;
+            btnListaDifusion.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnListaDifusion.ForeColor = Color.White;
+            btnListaDifusion.Location = new Point(0, 419);
+            btnListaDifusion.Name = "btnListaDifusion";
+            btnListaDifusion.Size = new Size(255, 58);
+            btnListaDifusion.TabIndex = 8;
+            btnListaDifusion.Text = "Listas de difusión";
+            btnListaDifusion.UseVisualStyleBackColor = true;
+            btnListaDifusion.Click += btnListaDifusion_Click;
             // 
             // MenuAdmin
             // 
@@ -371,6 +388,7 @@
             Name = "MenuAdmin";
             Text = "MenuAdmin";
             panel1.ResumeLayout(false);
+            panel12.ResumeLayout(false);
             panel11.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel8.ResumeLayout(false);
@@ -383,7 +401,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            panel12.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -415,5 +432,6 @@
         private Panel panelOpciones;
         private Button btn_Contacto;
         private Panel panel12;
+        private Button btnListaDifusion;
     }
 }
